@@ -1,4 +1,15 @@
 (module
+    (import "events" "piecemoved"
+            (func $notify_piecemoved (param $fromX i32) (param $fromY i32)
+                                     (param $toX i32) (param $toY i32)
+            )
+    )
+
+    (import "events" "piececrowned"
+            (func $notify_piececrowned (param $pieceX i32) (param $pieceY i32)
+            )
+    )
+
     (memory $mem 1)  ;; Assign at least one 64KB page of memory to $mem
     ;; GLOBALS
     (global $WHITE i32 (i32.const 2)) ;; bitmask for white 00000010
@@ -321,11 +332,16 @@
 
 
     ;; Exports
-    (export "offsetForPosition" (func $offsetForPosition))
+    (export "getPiece" (func $getPiece))
+    (export "initBoard" (func $initBoard))
+    (export "getTurnOwner" (func $getTurnOwner))
+    (export "move" (func $move))
+    (export "memory" (memory $mem))
     (export "isCrowned" (func $isCrowned))
-    (export "isWhite" (func $isWhite))
-    (export "isBlack" (func $isBlack))
-    (export "withCrown" (func $withCrown))
-    (export "withoutCrown" (func $withoutCrown))
+    ;;(export "offsetForPosition" (func $offsetForPosition))
+    ;;(export "isWhite" (func $isWhite))
+    ;;(export "isBlack" (func $isBlack))
+    ;;(export "withCrown" (func $withCrown))
+    ;;(export "withoutCrown" (func $withoutCrown))
 
 )
