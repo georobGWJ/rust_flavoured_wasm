@@ -281,6 +281,45 @@
         (i32.const 1)
     )
 
+    ;; Board initialization for testing purposes
+    ;; Manually place each piece
+    (func $initBoard
+        ;; Place White pieces at the top of the board
+        (call $setPiece (i32.const 1) (i32.const 0) (i32.const 2))
+        (call $setPiece (i32.const 3) (i32.const 0) (i32.const 2))
+        (call $setPiece (i32.const 5) (i32.const 0) (i32.const 2))
+        (call $setPiece (i32.const 7) (i32.const 0) (i32.const 2))
+
+        (call $setPiece (i32.const 0) (i32.const 1) (i32.const 2))
+        (call $setPiece (i32.const 2) (i32.const 1) (i32.const 2))
+        (call $setPiece (i32.const 4) (i32.const 1) (i32.const 2))
+        (call $setPiece (i32.const 6) (i32.const 1) (i32.const 2))
+
+        (call $setPiece (i32.const 1) (i32.const 2) (i32.const 2))
+        (call $setPiece (i32.const 3) (i32.const 2) (i32.const 2))
+        (call $setPiece (i32.const 5) (i32.const 2) (i32.const 2))
+        (call $setPiece (i32.const 7) (i32.const 2) (i32.const 2))
+
+        ;; Place Black pieces at the top of the board
+        (call $setPiece (i32.const 1) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 3) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 5) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 7) (i32.const 5) (i32.const 1))
+
+        (call $setPiece (i32.const 0) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 2) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 4) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 6) (i32.const 6) (i32.const 1))
+
+        (call $setPiece (i32.const 1) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 3) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 5) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 7) (i32.const 7) (i32.const 1))
+
+        (call $setTurnOwner (i32.const 1))  ;; Black goes first
+    )
+
+
     ;; Exports
     (export "offsetForPosition" (func $offsetForPosition))
     (export "isCrowned" (func $isCrowned))
