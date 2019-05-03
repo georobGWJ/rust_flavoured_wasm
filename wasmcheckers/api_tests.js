@@ -4,7 +4,7 @@ fetch('./checkers.wasm').then(response =>
         events: {
             piecemoved: (fX, fY, tX, tY) => {
                 console.log("A piece moved from (" + fX + ", " + fY + ") to "
-                            + "(" + fX + ", " + fY + ")" );
+                            + "(" + tX + ", " + tY + ")" );
             },
             piececrowned: (x, y) => {
                 console.log("A piece was crowned at (" + x + ", " + y + ")");
