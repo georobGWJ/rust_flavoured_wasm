@@ -1,9 +1,11 @@
 (module
     (memory $mem 1)  ;; Assign at least one 64KB page of memory to $mem
     ;; GLOBALS
-    (global $WHITE i32 (i32.const 2))
-    (global $BLACK i32 (i32.const 1))
-    (global $CROWN i32 (i32.const 4))
+    (global $WHITE i32 (i32.const 2)) ;; bitmask for white 00000010
+    (global $BLACK i32 (i32.const 1)) ;; bitmask for white 00000001
+    (global $CROWN i32 (i32.const 4)) ;; bitmask for white 00000100
+    ;; mut makes the Global var below mutable
+    (global $currentTurn (mut i32) (i32.const 0))  ;; 1 = black turn, 2 = white turn
 
     ;; A function for indexing an 8x8 grid using linear memory
     (func $indexForPosition (param $x i32) (param $y i32) (result i32)
@@ -72,7 +74,7 @@
 
     ;; Set a piece on the board
     (func $setPiece (param $x i32) (param $y i32) (param $piece i32)
-        (i32.store
+        (i32.store  ;; i32.store stores an i32 in a memory address
             (call $offsetForPosition
                 (get_local $x)
                 (get_local $y)
@@ -114,12 +116,40 @@
     )
 
     ;; Detect if values are within range (inclusive high and low)
+    ;; wasm has no built in protections from trying to access out-of-bounds memory
     (func $inRange (param $low i32) (param $high i32) (param $value i32) (result i32)
         (i32.and
             (i32.ge_s (get_local $value) (get_local $low))
             (i32.le_s (get_local $value) (get_local $high))
         )
     )
+
+    ;; Get the current turn owner
+    (func $getTurnOwner (result i32)
+        (get_global $currentTurn)
+    )
+
+    ;; At the end of a turn, switch turn owner to other player
+    (func $toggleTurnOwner
+        (if (i32.eq (call $getTurnOwner) (i32.const 1))
+            (then (call $setTurnOwner (i32.const 2)))
+            (else (call $setTurnOwner (i32.const 1)))
+        )
+    )
+
+    ;; Set the current turn owner
+    (func $setTurnOwner (param $piece i32)
+        (set_global $currentTurn (get_local $piece))
+    )
+
+    ;; Check if it's a player's turn
+    (func $isPlayersTurn (param $player i32) (result i32)
+        (i32.gt_s
+            (i32.and (get_local $player) (call $getTurnOwner))
+            (i32.const 0)
+        )
+    )
+
 
     ;; Exports
     (export "offsetForPosition" (func $offsetForPosition))
