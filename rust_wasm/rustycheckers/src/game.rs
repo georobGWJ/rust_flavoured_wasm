@@ -33,9 +33,44 @@ impl GameEngine {
                 self.board[x][y] = Some(GamePiece::new(PieceColor::Black));
             });
     }
+
+    pub fn move_piece(&mut self, mv: &Move) -> Result<MoveResult, ()> {
+        let legal_moves = self.legal_moves();
+
+        if !legal_moves.contains(mv) {
+            return Err(());
+        }
+
+        let Coordinate(fx, fy) = mv.from;
+        let Coordinate(tx, ty) = mv.to;
+        let piece = self.board[fx][fy].unwrap();
+        let midpiece_coordinate = self.midpiece_coordinate(fx, fy, tx, ty);
+        if let Some(Coordinate(x, y)) = midpiece_coordinate {
+            self.board[x][y] = None;  // Remove a jumped piece
+        }
+
+        // Move piece
+        self.board[tx][ty] = Some(piece);
+        self.board[fx][fy] = None;
+
+        let crowned = if self.should_crown(piece, mv.to) {
+            self.crown_piece(mv.to);
+            true
+        } else {
+            false
+        };
+
+        self.advance_turn();
+
+        Ok(MoveResult {
+            mv: mv.clone(),
+            crowned: crowned,
+        })
+    }
 }
 
 pub struct MoveResult {
     pub mv: Move,
     pub crowned: bool,
 }
+
