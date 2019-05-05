@@ -1,4 +1,5 @@
 mod board;
+mod game;
 
 #[cfg(test)]
 mod tests {
