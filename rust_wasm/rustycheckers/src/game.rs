@@ -67,6 +67,48 @@ impl GameEngine {
             crowned: crowned,
         })
     }
+
+    fn legal_moves(&self) -> Vec<Move> {
+        let mut moves: Vec<Move> = Vec::new();
+
+        for col in 0..8 {
+            for row in 0..8 {
+                if let Some(piece) = self.board[col][row] {
+                    if piece.color == self.current_turn {
+                        let loc = Coordinate(col, row);
+                        let mut vmoves = self.valid_moves_from(loc);
+                        moves.append(&mut vmoves);
+                    }
+                }
+            }
+        }
+        moves
+    }
+
+    fn valid_moves_from(&self, loc: Coordinate) -> Vec<Move> {
+        let Coordinate(x, y) = loc;
+
+        if let Some(p) = self.board[x][y] {
+            let mut jumps = loc
+                            .jump_targets_from()
+                            .filter(|t| self.valid_jump(&p, &loc, &t))
+                            .map(|ref t| Move {
+                                from: loc.clone(),
+                                to: t.clone(),
+                            }).collect::<Vec<Move>>();
+            let moves = loc
+                        .move_targets_from()
+                        .filter(|t| self.valid_move(&p, &loc, &t))
+                        .map(|ref t| Move {
+                            from: loc.clone(),
+                            to: t.clone(),
+                        }).collect::<Vec<Move>>();
+            jumps.append(&mut moves);
+            jumps
+        } else {
+            Vec::new()
+        }
+    }
 }
 
 pub struct MoveResult {
