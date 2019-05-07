@@ -3,6 +3,10 @@
 
 #[macro_use]
 extern crate lazy_static;
+extern "C" {
+    fn notify_piecemoved(fromX: i32, fromY: i32, toX: i32, toY: i32);
+    fn notify_piececrowned(x: i32, y: i32);
+}
 
 mod board;
 mod game;
@@ -56,6 +60,27 @@ impl Into<i32> for GamePiece {
             val += PIECEFLAG_CROWN;
         }
         val as i32
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn move_piece(fx: i32, fy: i32, tx: i32, ty: i32) -> i32 {
+    let mut engine = GAME_ENGINE.write().unwrap();
+    let mv = Move::new((fx as usize, fy as usize), (tx as usize, ty as usize));
+    let res = engine.move_piece(&mv);
+    match res {
+        Ok(mr) => {
+            unsafe {
+                notify_piecemoved(fx, fy, tx, ty);
+            }
+            if mr.crowned {
+                unsafe {
+                    notify_piececrowned(tx, ty);
+                }
+            }
+            1
+        },
+        Err(_) => 0,
     }
 }
 
