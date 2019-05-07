@@ -1,5 +1,11 @@
+// Build command:
+// rustup run nightly cargo build
+
 #[macro_use]
 extern crate lazy_static;
+
+mod board;
+mod game;
 
 // lazy_static allows creation of a globally available instance of
 // the GameEngine struct. 
@@ -12,8 +18,6 @@ lazy_static! {
         { MutStatic::from(GameEngine::new()) };
 }
 
-// mod board;
-// mod game;
 
 #[no_mangle]
 pub extern "C" fn get_piece(x: i32, y: i32) -> i32 {
@@ -32,6 +36,27 @@ pub extern "C" fn get_current_turn() -> i32 {
     let engine = GAME_ENGINE.read().unwrap();
 
     GamePiece::new(engine.current_turn()).into()
+}
+
+const PIECEFLAG_BLACK: u8 = 1;
+const PIECEFLAG_WHITE: u8 = 2;
+const PIECEFLAG_CROWN: u8 = 4;
+
+// Create a method to explicity convert a GamePiece into an i32
+impl Into<i32> for GamePiece {
+    fn into(self) -> i32 {
+        let mut val: u8 = 0;
+        if self.color == PieceColor::Black {
+            val += PIECEFLAG_BLACK;
+        } else if self.color == PieceColor::White {
+            val += PIECEFLAG_WHITE;
+        }
+
+        if self.crowned {
+            val += PIECEFLAG_CROWN;
+        }
+        val as i32
+    }
 }
 
 #[cfg(test)]
