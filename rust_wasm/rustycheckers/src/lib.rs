@@ -1,19 +1,22 @@
 // Build command:
 // rustup run nightly cargo build
 
-#[macro_use]
-extern crate lazy_static;
+extern crate mut_static;
+
 extern "C" {
     fn notify_piecemoved(fromX: i32, fromY: i32, toX: i32, toY: i32);
     fn notify_piececrowned(x: i32, y: i32);
 }
+
+#[macro_use]
+extern crate lazy_static;
 
 mod board;
 mod game;
 
 // lazy_static allows creation of a globally available instance of
 // the GameEngine struct. 
-use board::{Coordinate, GamePiece, Move, PieceColor};
+use board::{ Coordinate, GamePiece, Move, PieceColor };
 use game::GameEngine;
 use mut_static::MutStatic;
 
@@ -81,13 +84,5 @@ pub extern "C" fn move_piece(fx: i32, fy: i32, tx: i32, ty: i32) -> i32 {
             1
         },
         Err(_) => 0,
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
     }
 }
