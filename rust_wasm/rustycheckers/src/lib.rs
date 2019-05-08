@@ -1,5 +1,5 @@
 // Build command:
-// rustup run nightly cargo build
+// rustup run nightly cargo build --target wasm32-unknown-unknown
 
 extern crate mut_static;
 

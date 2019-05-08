@@ -77,7 +77,7 @@ impl GameEngine {
         }
     }
 
-    pub fn current_turn(&mut self) -> PieceColor {
+    pub fn current_turn(&self) -> PieceColor {
         self.current_turn
     }
 
@@ -130,7 +130,7 @@ impl GameEngine {
                                 from: loc.clone(),
                                 to: t.clone(),
                             }).collect::<Vec<Move>>();
-            let moves = loc
+            let mut moves = loc
                         .move_targets_from()
                         .filter(|t| self.valid_move(&p, &loc, &t))
                         .map(|ref t| Move {
