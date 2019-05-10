@@ -24,10 +24,10 @@ fetch('./target/wasm32-unknown-unknown/debug/rustycheckers.wasm').then(response 
 
             let res = instance.exports.move_piece(0, 5, 1, 4); // B
             console.log("First move result: " + res);
-            console.log("Turn after move: " + instance.exports.get_current_turn());
+            console.log("Turn after first move is " + instance.exports.get_current_turn());
 
-            let bad = instance.exports.move_piece(1, 4, 2, 3); // illegal move
+            let bad = instance.exports.move_piece(1, 4, 2, 3); // illegal move since it's the other players turn
             console.log("Illegal move result: " + bad);
-            console.log("Turn after illegal move: " 
+            console.log("Turn after illegal move is " 
                 + instance.exports.get_current_turn());
     }).catch(console.error);

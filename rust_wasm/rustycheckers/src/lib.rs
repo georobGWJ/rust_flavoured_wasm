@@ -72,11 +72,11 @@ pub extern "C" fn move_piece(fx: i32, fy: i32, tx: i32, ty: i32) -> i32 {
     let mv = Move::new((fx as usize, fy as usize), (tx as usize, ty as usize));
     let res = engine.move_piece(&mv);
     match res {
-        Ok(mr) => {
+        Ok(mv) => {
             unsafe {
                 notify_piecemoved(fx, fy, tx, ty);
             }
-            if mr.crowned {
+            if mv.crowned {
                 unsafe {
                     notify_piececrowned(tx, ty);
                 }
