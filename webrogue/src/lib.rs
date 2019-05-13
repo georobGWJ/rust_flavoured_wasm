@@ -69,3 +69,29 @@ impl Engine {
         }
     }
 }
+
+
+#[derive(Serialize)]
+pub struct Stats {
+    pub hitpoints: i32,
+    pub max_hitpoints: i32,
+    pub moves: i32,
+}
+
+#[derive(PartialEq, Eq, PartialOrd, Clone, Debug, Hash)]
+struct GridPoint {
+    pub x: i32,
+    pub y: i32,
+}
+
+#[wasm_bindgen]
+pub struct PlayerCore {
+    loc: GridPoint,
+    moves: i32,
+    display: Display,
+    hp: i32,
+    max_hp: i32,
+    icon: String,
+    color: String,
+}
+
