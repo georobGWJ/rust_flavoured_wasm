@@ -44,7 +44,43 @@ var Game = {
         // helper utillity function defined below
         this.player = this._createBeing(Player, freeCells);
         this.enemy = this._createBeing(Checko, freeCells);
-    }
+    },
+
+    generateBoxes: function (freeCells) {
+        for (var i = 0; i < 10; i++) {
+            var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+            var key = freeCells.splice(index, 1)[0];
+            var parts = key.split(",");
+            var x = parseInt(parts[0]);
+            var y = parseInt(parts[1]);
+
+            this.engine.place_box(x, y);
+            if (i == 9) {
+                this.engine.mark_wasmprize(x, y);
+            }
+        }
+    },
+
+    generatePlayer: function (freeCells) {
+        var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+        var key = freeCells.splice(index, 1)[0];
+        var parts = key.split(",");
+        var x = parseInt(parts[0]);
+        var y = parseInt(parts[1]);
+
+        console.log("Generating player...");
+        this.player = new Player(x, y);
+    },
+};
+
+Game._createBeing = function (what, freeCells) {
+    var index = Math.floor(ROT.RNG.getUniform() * freeCells.length);
+    var key = freeCells.splice(index, 1)[0];
+    var parts = key.split(",");
+    var x = parseInt(parts[0]);
+    var y = parseInt(parts[1]);
+
+    return new what(x, y);
 }
 
 var Player = function(x, y) {
