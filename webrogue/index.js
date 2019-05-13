@@ -70,6 +70,8 @@ Player.prototype.handleEvent = function (e) {
 
     var code = e.keyCode;
 
+    // 13 is 'Carriage Return' (Enter) and 32 is 'Space Bar'
+    // This is our chosen command to open an in game Chest
     if (code == 13 || code == 32) {
         Game.engine.open_box(this._core, this._core.x(), this._core.y());
         return;
@@ -93,3 +95,38 @@ Player.prototype.handleEvent = function (e) {
 Player.prototype.getX = function () { return this._core.x(); }
 
 Player.prototype.getY = function () { return this._core.y(); }
+
+// Check the Borrow Checker. Our Enemy
+var Checko = function (x, y) {
+    this._core = new PlayerCore(x, y, "B", "red", Game.Display);
+    this.core_draw();
+
+    Checko.prototype.act = function () {
+        var x = Game.player.getX();
+        var y = Game.player.getY();
+
+        var passableCallback = function (x, y) {
+            return Game.engine.free_cell(x, y);
+        }
+
+        // A-Star pathfinding is a function of the Rot.js lobrary
+        var astar = new ROT.Path.AStar(x, y, passableCallback, {topology: 4});
+
+        var path = [];
+        var pathCallback = function (x, y) {
+            path.push([x, y]);
+        }
+        astar.compute(this._core.x(), this._core.y(), pathCallback);
+
+        path.shift();
+        // Check to see if Checko moves onto the player
+        if (path.length <= 1) {
+            Game.rotengine.lock();  // Stop all gmae schedulers
+            alert("You were captured and consumed by the Borrow Checker!");
+        } else {
+            x = path[0][0];
+            y = path[0][1];
+            Game.engine.move_player(this._core, x, y);
+        }
+    }
+}
