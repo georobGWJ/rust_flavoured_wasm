@@ -61,6 +61,62 @@ impl Engine {
         }
     }
 
+    pub fn redraw_at(&self, x: i32, y: i32) {
+        let g = GridPoint { x, y };
+        if let Some(v) = self.points.get(&g) {
+            self.display.draw(x, y, v);
+        }
+    }
+
+    pub fn place_box(&mut self, x: i32, y: i32) {
+        let g = GridPoint { x, y };
+        self.points.insert(g, "*".to_owned());
+    }
+
+    pub fn open_box(&mut self, pc: &mut PlayerCore, x: i32, y: i32) {
+        let spot = GridPoint { x, y };
+        {
+            let v = self.points.get(&spot).unwrap();
+
+            if v != "*" {
+                alert("There is no chest to try to open here.");
+                return;
+            }
+        }
+
+        if let Some(ref loc) = self.prize_location {
+            if *loc == spot {
+                alert("Congrats! You've found the WebAssembly Module!");
+            } else {
+                alert("Uh Oh! That chest had a trap on it!");
+                pc.take_damage(30);
+            }
+        }
+
+        self.remove_box(spot.x, spot.y);
+    }
+
+    fn remove_box(&mut self, x: i32, y: i32) {
+        let loc = GridPoint { x, y };
+        self.ponts.insert(loc, ".".to_owned());
+    }
+
+    pub fn mark_wasmprize(&mut self, x: i32, y: i32) {
+        let g = GridPoint { x, y };
+        if let Some(v) = self.points.get(&g) {
+            if v == "*" {
+                self.prize_location = Some(g);
+            }
+        }
+    }
+
+    pub fn move_player(&mut self, pc: &mut PlayerCore, x: i32, y: i32) {
+        // replace icon with what's underneath 'texture'
+        self.redraw_at(pc.x(), pc.y());
+
+        pc.move_to(x, y);
+    }
+
     pub fn free_cell(&self, x: i32, y: i32) -> bool {
         let g = GridPoint { x, y, };
         match self.points.get(&g) {
