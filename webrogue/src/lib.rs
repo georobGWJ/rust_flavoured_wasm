@@ -60,4 +60,12 @@ impl Engine {
             self.display.draw(k.x, k.y, &v);
         }
     }
+
+    pub fn free_cell(&self, x: i32, y: i32) -> bool {
+        let g = GridPoint { x, y, };
+        match self.points.get(&g) {
+            Some(v) => v == "." || v == "*",
+            None => false,
+        }
+    }
 }
