@@ -34,6 +34,84 @@ extern "C" {
 
 }
 
+#[derive(Serialize)]
+pub struct Stats {
+    pub hitpoints: i32,
+    pub max_hitpoints: i32,
+    pub moves: i32,
+}
+
+#[derive(PartialEq, Eq, PartialOrd, Clone, Debug, Hash)]
+struct GridPoint {
+    pub x: i32,
+    pub y: i32,
+}
+
+#[wasm_bindgen]
+pub struct PlayerCore {
+    loc: GridPoint,
+    moves: i32,
+    display: Display,
+    hp: i32,
+    max_hp: i32,
+    icon: String,
+    color: String,
+}
+
+#[wasm_bindgen]
+impl PlayerCore {
+    #[wasm_bindgen(constructor)]
+    pub fn new(x: i32, y: i32, icon: &str, 
+               color: &str, display: Display) -> PlayerCore {
+        PlayerCore {
+            loc: GridPoint { x, y },
+            moves: 0,
+            display,
+            hp: 100,
+            max_hp: 100,
+            icon: icon.to_owned(),
+            color: color.to_owned(),
+        }
+    }
+
+    pub fn x(&self) -> i32 {
+        self.loc.x
+    }
+
+    pub fn y(&self) -> i32 {
+        self.loc.y
+    }
+
+    pub fn draw(&self) {
+        &self.display
+             .draw_color(self.loc.x, self.loc.y, &self.icon, &self.color);
+    }
+
+    pub fn move_to(&mut self, x: i32, y: i32) {
+        self.loc = GridPoint { x, y };
+        self.draw();
+
+        self.moves += 1;
+        self.emit_stats();
+    }
+
+    pub fn emit_stats(&self) {
+        let stats = Stats {
+            hitpoints: self.hp,
+            max_hitpoints: self.max_hp,
+            moves: self.moves,
+        };
+        // This data is passed as JSON via serde serialization
+        stats_updated(JsValue::from_serde(&stats).unwrap());
+    }
+
+    pub fn take_damage(&mut self, hits: i32) -> i32 {
+        self.hp = self.hp - hits;
+        self.emit_stats();
+        self.hp
+    }
+}
+
 #[wasm_bindgen]
 pub struct Engine {
     display: Display,
@@ -131,80 +209,5 @@ impl Engine {
 }
 
 
-#[derive(Serialize)]
-pub struct Stats {
-    pub hitpoints: i32,
-    pub max_hitpoints: i32,
-    pub moves: i32,
-}
 
-#[derive(PartialEq, Eq, PartialOrd, Clone, Debug, Hash)]
-struct GridPoint {
-    pub x: i32,
-    pub y: i32,
-}
 
-#[wasm_bindgen]
-pub struct PlayerCore {
-    loc: GridPoint,
-    moves: i32,
-    display: Display,
-    hp: i32,
-    max_hp: i32,
-    icon: String,
-    color: String,
-}
-
-#[wasm_bindgen]
-impl PlayerCore {
-    #[wasm_bindgen(constructor)]
-    pub fn new(x: i32, y: i32, icon: &str, 
-               color: &str, display: Display) -> PlayerCore {
-        PlayerCore {
-            loc: GridPoint { x, y },
-            moves: 0,
-            display,
-            hp: 100,
-            max_hp: 100,
-            icon: icon.to_owned(),
-            color: color.to_owned(),
-        }
-    }
-
-    pub fn x(&self) -> i32 {
-        self.loc.x
-    }
-
-    pub fn y(&self) -> i32 {
-        self.loc.y
-    }
-
-    pub fn draw(&self) {
-        &self.display
-             .draw_color(self.loc.x, self.loc.y, &self.icon, &self.color);
-    }
-
-    pub fn move_to(&mut self, x: i32, y: i32) {
-        self.loc = GridPoint { x, y };
-        self.draw();
-
-        self.moves += 1;
-        self.emit_stats();
-    }
-
-    pub fn emit_stats(&self) {
-        let stats = Stats {
-            hitpoints: self.hp,
-            max_hitpoints: self.max_hp,
-            moves: self.moves,
-        };
-        // This data is passed as JSON via serde serialization
-        stats_updated(JsValue::from_serde(&stats).unwrap());
-    }
-
-    pub fn take_damage(&mut self, hits: i32) -> i32 {
-        self.hp = self.hp - hits;
-        self.emit_stats();
-        self.hp
-    }
-}

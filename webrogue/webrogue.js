@@ -58,15 +58,6 @@ export function __wbg_draw_c822416c66d4135c(arg0, arg1, arg2, arg3, arg4, arg5, 
     getObject(arg0).draw(arg1, arg2, varg3, varg5);
 }
 
-function addHeapObject(obj) {
-    if (heap_next === heap.length) heap.push(heap.length + 1);
-    const idx = heap_next;
-    heap_next = heap[idx];
-
-    heap[idx] = obj;
-    return idx;
-}
-
 let WASM_VECTOR_LEN = 0;
 
 const lTextEncoder = typeof TextEncoder === 'undefined' ? require('util').TextEncoder : TextEncoder;
@@ -102,6 +93,15 @@ if (typeof cachedTextEncoder.encodeInto === 'function') {
         WASM_VECTOR_LEN = buf.length;
         return ptr;
     };
+}
+
+function addHeapObject(obj) {
+    if (heap_next === heap.length) heap.push(heap.length + 1);
+    const idx = heap_next;
+    heap_next = heap[idx];
+
+    heap[idx] = obj;
+    return idx;
 }
 
 export function __wbindgen_json_parse(ptr, len) { return addHeapObject(JSON.parse(getStringFromWasm(ptr, len))); }
