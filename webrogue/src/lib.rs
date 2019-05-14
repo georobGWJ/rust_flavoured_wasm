@@ -1,3 +1,7 @@
+// To build, use command:
+// rustup run nightly cargo build --target wasm32-unknown-unknown
+// wasm-bindgen target/wasm32-unknown-unknown/debug/webrogue.wasm --out-dir .
+
 #[macro_use]
 extern crate serde_derive;
 
@@ -98,7 +102,7 @@ impl Engine {
 
     fn remove_box(&mut self, x: i32, y: i32) {
         let loc = GridPoint { x, y };
-        self.ponts.insert(loc, ".".to_owned());
+        self.points.insert(loc, ".".to_owned());
     }
 
     pub fn mark_wasmprize(&mut self, x: i32, y: i32) {
@@ -154,7 +158,7 @@ pub struct PlayerCore {
 #[wasm_bindgen]
 impl PlayerCore {
     #[wasm_bindgen(constructor)]
-    pub fn new(x: i32, y: i32, icon &str, 
+    pub fn new(x: i32, y: i32, icon: &str, 
                color: &str, display: Display) -> PlayerCore {
         PlayerCore {
             loc: GridPoint { x, y },
@@ -175,7 +179,7 @@ impl PlayerCore {
         self.loc.y
     }
 
-    pub fn draw(&self) -> i32 {
+    pub fn draw(&self) {
         &self.display
              .draw_color(self.loc.x, self.loc.y, &self.icon, &self.color);
     }

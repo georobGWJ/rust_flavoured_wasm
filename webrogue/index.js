@@ -1,4 +1,4 @@
-import { Engine, PlayerCore } from './roguewasm';
+import { Engine, PlayerCore } from './webrogue';
 
 var Game = {
     display: null,
@@ -8,7 +8,7 @@ var Game = {
 
     init: function () {
         this.display = new ROT.Display({ width: 125, height: 40 });
-        document.getElementById("rogueCanvas".appendChild(this.display.getContainer));
+        document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
 
         this.engine = new Engine(this.display);
         this.generateMap();
