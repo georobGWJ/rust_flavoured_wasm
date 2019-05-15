@@ -17,7 +17,7 @@ extern "C" {
 
     // Import JS stats_updated() from 'index' module 
     #[wasm_bindgen(module = "./index")]
-    fn stats_updated(stats: JsValue);
+    pub fn stats_updated(stats: JsValue);
 
     pub type Display;
 
@@ -28,6 +28,19 @@ extern "C" {
     #[wasm_bindgen(method, structural, js_name = draw, js_namespace = ROT)]
     fn draw_color(this: &Display, x: i32, y: i32, ch: &str, color: &str);
 
+}
+
+#[derive(Serialize)]
+pub struct Stats {
+    pub hitpoints: i32,
+    pub max_hitpoints: i32,
+    pub moves: i32,
+}
+
+#[derive(PartialEq, Eq, PartialOrd, Clone, Debug, Hash)]
+struct GridPoint {
+    pub x: i32,
+    pub y: i32,
 }
 
 #[wasm_bindgen]
@@ -98,7 +111,7 @@ impl Engine {
 
     fn remove_box(&mut self, x: i32, y: i32) {
         let loc = GridPoint { x, y };
-        self.ponts.insert(loc, ".".to_owned());
+        self.points.insert(loc, ".".to_owned());
     }
 
     pub fn mark_wasmprize(&mut self, x: i32, y: i32) {
@@ -127,19 +140,6 @@ impl Engine {
 }
 
 
-#[derive(Serialize)]
-pub struct Stats {
-    pub hitpoints: i32,
-    pub max_hitpoints: i32,
-    pub moves: i32,
-}
-
-#[derive(PartialEq, Eq, PartialOrd, Clone, Debug, Hash)]
-struct GridPoint {
-    pub x: i32,
-    pub y: i32,
-}
-
 #[wasm_bindgen]
 pub struct PlayerCore {
     loc: GridPoint,
@@ -154,7 +154,7 @@ pub struct PlayerCore {
 #[wasm_bindgen]
 impl PlayerCore {
     #[wasm_bindgen(constructor)]
-    pub fn new(x: i32, y: i32, icon &str, 
+    pub fn new(x: i32, y: i32, icon: &str, 
                color: &str, display: Display) -> PlayerCore {
         PlayerCore {
             loc: GridPoint { x, y },
@@ -175,7 +175,7 @@ impl PlayerCore {
         self.loc.y
     }
 
-    pub fn draw(&self) -> i32 {
+    pub fn draw(&self) {
         &self.display
              .draw_color(self.loc.x, self.loc.y, &self.icon, &self.color);
     }

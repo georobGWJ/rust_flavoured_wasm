@@ -1,4 +1,4 @@
-import { Engine, PlayerCore } from './roguewasm';
+import { Engine, PlayerCore } from './webroguev2';
 
 var Game = {
     display: null,
@@ -8,7 +8,7 @@ var Game = {
 
     init: function () {
         this.display = new ROT.Display({ width: 125, height: 40 });
-        document.getElementById("rogueCanvas".appendChild(this.display.getContainer));
+        document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
 
         this.engine = new Engine(this.display);
         this.generateMap();
@@ -28,7 +28,7 @@ var Game = {
 
         var digCallback = function (x, y, value) {
             if (!value) {
-                var key = x + ", " + y;
+                var key = x + "," + y;
                 freeCells.push(key);
             }
             this.engine.on_dig(x, y, value);
@@ -83,6 +83,41 @@ Game._createBeing = function (what, freeCells) {
     return new what(x, y);
 }
 
+// Check the Borrow Checker. Our Enemy
+var Checko = function (x, y) {
+    this._core = new PlayerCore(x, y, "B", "red", Game.display);
+    this._core.draw();
+
+    Checko.prototype.act = function () {
+        var x = Game.player.getX();
+        var y = Game.player.getY();
+
+        var passableCallback = function (x, y) {
+            return Game.engine.free_cell(x, y);
+        }
+
+        // A-Star pathfinding is a function of the Rot.js lobrary
+        var astar = new ROT.Path.AStar(x, y, passableCallback, {topology: 4});
+
+        var path = [];
+        var pathCallback = function (x, y) {
+            path.push([x, y]);
+        }
+        astar.compute(this._core.x(), this._core.y(), pathCallback);
+
+        path.shift();
+        // Check to see if Checko moves onto the player
+        if (path.length <= 1) {
+            Game.rotengine.lock();  // Stop all game schedulers
+            alert("You were captured and consumed by the Borrow Checker!");
+        } else {
+            x = path[0][0];
+            y = path[0][1];
+            Game.engine.move_player(this._core, x, y);
+        }
+    }
+}
+
 var Player = function(x, y) {
     this._core = new PlayerCore(x, y, "@", "#ff0", Game.display);
     this._core.draw();
@@ -121,7 +156,7 @@ Player.prototype.handleEvent = function (e) {
     var newX = this._core.x() + dir[0];
     var newY = this._core.y() + dir[1];
 
-    if (!Game.engine.free_cell(newX, newY)) { return; }
+    if (!Game.engine.free_cell(newX, newY)) { return; };
 
     Game.engine.move_player(this._core, newX, newY);
     window.removeEventListener("keydown", this);
@@ -131,41 +166,6 @@ Player.prototype.handleEvent = function (e) {
 Player.prototype.getX = function () { return this._core.x(); }
 
 Player.prototype.getY = function () { return this._core.y(); }
-
-// Check the Borrow Checker. Our Enemy
-var Checko = function (x, y) {
-    this._core = new PlayerCore(x, y, "B", "red", Game.Display);
-    this.core_draw();
-
-    Checko.prototype.act = function () {
-        var x = Game.player.getX();
-        var y = Game.player.getY();
-
-        var passableCallback = function (x, y) {
-            return Game.engine.free_cell(x, y);
-        }
-
-        // A-Star pathfinding is a function of the Rot.js lobrary
-        var astar = new ROT.Path.AStar(x, y, passableCallback, {topology: 4});
-
-        var path = [];
-        var pathCallback = function (x, y) {
-            path.push([x, y]);
-        }
-        astar.compute(this._core.x(), this._core.y(), pathCallback);
-
-        path.shift();
-        // Check to see if Checko moves onto the player
-        if (path.length <= 1) {
-            Game.rotengine.lock();  // Stop all gmae schedulers
-            alert("You were captured and consumed by the Borrow Checker!");
-        } else {
-            x = path[0][0];
-            y = path[0][1];
-            Game.engine.move_player(this._core, x, y);
-        }
-    }
-}
 
 Game.init();
 

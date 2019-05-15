@@ -6,6 +6,15 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
   <title>Rogue WebAssembly</title>
   <script src="https://cdn.jsdelivr.net/npm/rot-js@2/dist/rot.js"></script>
+  <script type="text/javascript">
+    // This is a CHEAT!!!
+    // TO-DO: Figure out why index is NOT exporting this function correctly.
+    function stats_updated(stats) {
+      document.getElementById("hitpoints").textContent = stats.hitpoints;
+      document.getElementById("max_hitpoints").textContent = stats.max_hitpoints;
+      document.getElementById("moves").textContent = stats.moves;
+}
+  </script>
   <style type="text/css">
     .row { display: flex; }
     .row_cell {flex: 1;}
