@@ -7,7 +7,7 @@ var Game = {
     enemy: null,
 
     init: function () {
-        this.display = new ROT.Display({ width: 125, height: 40 });
+        this.display = new ROT.Display({ width: 100, height: 40 });
         document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
 
         this.engine = new Engine(this.display);
