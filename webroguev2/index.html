@@ -15,25 +15,20 @@
       document.getElementById("moves").textContent = stats.moves;
 }
   </script>
-  <style type="text/css">
-    .row { display: flex; }
-    .row_cell {flex: 1;}
-  </style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
   <div class="row">
-    <div class="row_cell" style="text-align: center;">
+    <div class="row_cell title">
       <h1>Rogue WebAssembly</h1>
     </div>
   </div>
   <div class = "row">
-    <div class="row_cell" id="rogueCanvas">
-      
-    </div>
-    <div class="row_cell" id="statsContainer" style="padding:15px;">
-      <div class="row_cell" style="text-align: center;">
+    <div class="row_cell map" id="rogueCanvas"></div>
+    <div class="row_cell sidebar" id="statsContainer">
+      <div class="row_cell stats">
         <h2>Stats</h2>
       </div>
       <p>

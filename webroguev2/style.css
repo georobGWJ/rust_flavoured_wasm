@@ -1,0 +1,26 @@
+.map {
+    flex:  1;
+}
+
+.row { 
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.row_cell {
+    flex: 1;
+    text-align: center;
+}
+
+.sidebar {
+    padding:50px;
+}
+
+.stats {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
