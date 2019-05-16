@@ -200,6 +200,9 @@ impl PlayerCore {
 
     pub fn take_damage(&mut self, hits: i32) -> i32 {
         self.hp = self.hp - hits;
+        if self.hp <= 0 {
+            alert("You breath your last and collapse...");
+        }
         self.emit_stats();
         self.hp
     }
