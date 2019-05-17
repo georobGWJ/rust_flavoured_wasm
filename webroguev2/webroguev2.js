@@ -21,6 +21,11 @@ export function __wbg_alert_8f39b604fe0a2418(arg0, arg1) {
     alert(varg0);
 }
 
+export function __wbg_log_35393fce4b435c27(arg0, arg1) {
+    let varg0 = getStringFromWasm(arg0, arg1);
+    console.log(varg0);
+}
+
 const heap = new Array(32);
 
 heap.fill(undefined);
@@ -218,19 +223,23 @@ export class PlayerCore {
     * @param {string} icon
     * @param {string} color
     * @param {any} display
+    * @param {string} player_type
     * @returns {}
     */
-    constructor(x, y, icon, color, display) {
+    constructor(x, y, icon, color, display, player_type) {
         const ptr2 = passStringToWasm(icon);
         const len2 = WASM_VECTOR_LEN;
         const ptr3 = passStringToWasm(color);
         const len3 = WASM_VECTOR_LEN;
+        const ptr5 = passStringToWasm(player_type);
+        const len5 = WASM_VECTOR_LEN;
         try {
-            this.ptr = wasm.playercore_new(x, y, ptr2, len2, ptr3, len3, addHeapObject(display));
+            this.ptr = wasm.playercore_new(x, y, ptr2, len2, ptr3, len3, addHeapObject(display), ptr5, len5);
 
         } finally {
             wasm.__wbindgen_free(ptr2, len2 * 1);
             wasm.__wbindgen_free(ptr3, len3 * 1);
+            wasm.__wbindgen_free(ptr5, len5 * 1);
 
         }
 

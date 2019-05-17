@@ -43,6 +43,15 @@ struct GridPoint {
     pub y: i32,
 }
 
+// Each PlayerCore is one of these
+// #[wasm_bindgen]
+// pub enum PlayerCoreType {
+//     Player,
+//     Friendly,
+//     Neutral,
+//     Hostile,
+// }
+
 #[wasm_bindgen]
 pub struct Engine {
     display: Display,
@@ -149,13 +158,14 @@ pub struct PlayerCore {
     max_hp: i32,
     icon: String,
     color: String,
+    player_type: String,
 }
 
 #[wasm_bindgen]
 impl PlayerCore {
     #[wasm_bindgen(constructor)]
-    pub fn new(x: i32, y: i32, icon: &str, 
-               color: &str, display: Display) -> PlayerCore {
+    pub fn new(x: i32, y: i32, icon: &str, color: &str, 
+               display: Display, player_type: &str) -> PlayerCore {
         PlayerCore {
             loc: GridPoint { x, y },
             moves: 0,
@@ -164,6 +174,7 @@ impl PlayerCore {
             max_hp: 100,
             icon: icon.to_owned(),
             color: color.to_owned(),
+            player_type: player_type.to_owned(),
         }
     }
 
@@ -185,10 +196,16 @@ impl PlayerCore {
         self.draw();
 
         self.moves += 1;
-        self.emit_stats();
+
+        // TO-DO: It would be better if self.player_type was
+        // an 'enum'. How can I make this work?
+        if self.player_type == String::from("Player") {
+                self.emit_stats();
+        }
     }
 
     pub fn emit_stats(&self) {
+        log("emit_stats() called");
         let stats = Stats {
             hitpoints: self.hp,
             max_hitpoints: self.max_hp,

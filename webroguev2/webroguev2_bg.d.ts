@@ -11,7 +11,7 @@ export function engine_mark_wasmprize(a: number, b: number, c: number): void;
 export function engine_move_player(a: number, b: number, c: number, d: number): void;
 export function engine_free_cell(a: number, b: number, c: number): number;
 export function __wbg_playercore_free(a: number): void;
-export function playercore_new(a: number, b: number, c: number, d: number, e: number, f: number, g: number): number;
+export function playercore_new(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number): number;
 export function playercore_x(a: number): number;
 export function playercore_y(a: number): number;
 export function playercore_draw(a: number): void;

@@ -68,9 +68,10 @@ export class PlayerCore {
 * @param {string} icon 
 * @param {string} color 
 * @param {any} display 
+* @param {string} player_type 
 * @returns {} 
 */
-  constructor(x: number, y: number, icon: string, color: string, display: any);
+  constructor(x: number, y: number, icon: string, color: string, display: any, player_type: string);
 /**
 * @returns {number} 
 */

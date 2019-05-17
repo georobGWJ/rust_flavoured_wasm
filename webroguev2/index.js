@@ -85,7 +85,7 @@ Game._createBeing = function (what, freeCells) {
 
 // Check the Borrow Checker. Our Enemy
 var Checko = function (x, y) {
-    this._core = new PlayerCore(x, y, "B", "red", Game.display);
+    this._core = new PlayerCore(x, y, "B", "red", Game.display, "Hostile");
     this._core.draw();
 
     Checko.prototype.act = function () {
@@ -119,7 +119,7 @@ var Checko = function (x, y) {
 }
 
 var Player = function(x, y) {
-    this._core = new PlayerCore(x, y, "@", "#ff0", Game.display);
+    this._core = new PlayerCore(x, y, "@", "#ff0", Game.display, "Player");
     this._core.draw();
 }
 
@@ -160,6 +160,7 @@ Player.prototype.handleEvent = function (e) {
 
     Game.engine.move_player(this._core, newX, newY);
     window.removeEventListener("keydown", this);
+    // TO-DO: Add checks for HP <= 0 or Win State achieved here!
     Game.rotengine.unlock();
 }
 
