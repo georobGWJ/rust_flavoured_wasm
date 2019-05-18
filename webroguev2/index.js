@@ -2,7 +2,7 @@ import { RustEngine, PlayerCore } from './webroguev2';
 
 var Game = {
     display: null,
-    engine: null,
+    rust_engine: null,
     player: null,
     enemy: null,
 
@@ -10,7 +10,7 @@ var Game = {
         this.display = new ROT.Display({ width: 90, height: 30, bg: "#0f2851" });
         document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
 
-        this.engine = new RustEngine(this.display);
+        this.rust_engine = new RustEngine(this.display);
         this.generateMap();
 
         var scheduler = new ROT.Scheduler.Simple();
@@ -18,8 +18,8 @@ var Game = {
         scheduler.add(this.player, true);
         scheduler.add(this.enemy, true);
 
-        this.rotengine = new ROT.Engine(scheduler);
-        this.rotengine.start();
+        this.rot_engine = new ROT.Engine(scheduler);
+        this.rot_engine.start();
     },
 
     generateMap: function() {
@@ -31,14 +31,14 @@ var Game = {
                 var key = x + "," + y;
                 freeCells.push(key);
             }
-            this.engine.on_dig(x, y, value);
+            this.rust_engine.on_dig(x, y, value);
         }
         // Invoke on_dig() on the Rust 'Engine' struct
         digger.create(digCallback.bind(this));
 
         this.generateBoxes(freeCells);
         // Invoke draw_map() on the Rust 'Engine' struct
-        this.engine.draw_map();
+        this.rust_engine.draw_map();
 
         // 'this' refers to the JS Game class instance. _createBeing is a
         // helper utillity function defined below
@@ -54,9 +54,9 @@ var Game = {
             var x = parseInt(parts[0]);
             var y = parseInt(parts[1]);
 
-            this.engine.place_box(x, y);
+            this.rust_engine.place_box(x, y);
             if (i == 9) {
-                this.engine.mark_wasmprize(x, y);
+                this.rust_engine.mark_wasmprize(x, y);
             }
         }
     },
@@ -93,7 +93,7 @@ var Checko = function (x, y) {
         var y = Game.player.getY();
 
         var passableCallback = function (x, y) {
-            return Game.engine.free_cell(x, y);
+            return Game.rust_engine.free_cell(x, y);
         }
 
         // A-Star pathfinding is a function of the Rot.js lobrary
@@ -108,12 +108,12 @@ var Checko = function (x, y) {
         path.shift();
         // Check to see if Checko moves onto the player
         if (path.length <= 1) {
-            Game.rotengine.lock();  // Stop all game schedulers
+            Game.rot_engine.lock();  // Stop all game schedulers
             alert("You were captured and consumed by the Borrow Checker!");
         } else {
             x = path[0][0];
             y = path[0][1];
-            Game.engine.move_player(this._core, x, y);
+            Game.rust_engine.move_player(this._core, x, y);
         }
     }
 }
@@ -124,7 +124,7 @@ var Player = function(x, y) {
 }
 
 Player.prototype.act = function () {
-    Game.rotengine.lock();
+    Game.rot_engine.lock();
     window.addEventListener("keydown", this);
 }
 
@@ -144,7 +144,7 @@ Player.prototype.handleEvent = function (e) {
     // 13 is 'Carriage Return' (Enter) and 32 is 'Space Bar'
     // This is our chosen command to open an in game Chest
     if (code == 13 || code == 32) {
-        Game.engine.open_box(this._core, this._core.x(), this._core.y());
+        Game.rust_engine.open_box(this._core, this._core.x(), this._core.y());
         return;
     }
 
@@ -156,12 +156,12 @@ Player.prototype.handleEvent = function (e) {
     var newX = this._core.x() + dir[0];
     var newY = this._core.y() + dir[1];
 
-    if (!Game.engine.free_cell(newX, newY)) { return; };
+    if (!Game.rust_engine.free_cell(newX, newY)) { return; };
 
-    Game.engine.move_player(this._core, newX, newY);
+    Game.rust_engine.move_player(this._core, newX, newY);
     window.removeEventListener("keydown", this);
     // TO-DO: Add checks for HP <= 0 or Win State achieved here!
-    Game.rotengine.unlock();
+    Game.rot_engine.unlock();
 }
 
 Player.prototype.getX = function () { return this._core.x(); }

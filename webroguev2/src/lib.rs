@@ -20,6 +20,7 @@ extern "C" {
     pub fn stats_updated(stats: JsValue);
 
     pub type Display;
+    // pub type Engine;
 
     // Make ROT.js library methods available
     #[wasm_bindgen(method, structural, js_namespace = ROT)]
@@ -28,8 +29,6 @@ extern "C" {
     #[wasm_bindgen(method, structural, js_name = draw, js_namespace = ROT)]
     fn draw_color(this: &Display, x: i32, y: i32, ch: &str, color: &str);
     
-    //pub type ROT.Engine;
-
     // #[wasm_bindgen(method, structural, js_name = lock, js_namespace = ROT)]
     // fn lock(this: &Engine);
 }
@@ -115,7 +114,7 @@ impl RustEngine {
         if let Some(ref loc) = self.prize_location {
             if *loc == spot {
                 alert("Congrats! You've found the WebAssembly Module!");
-                //self.lock();
+                // self.rotengine.lock();
             } else {
                 alert("Uh Oh! That chest had a trap on it!");
                 pc.take_damage(30);
@@ -175,11 +174,11 @@ impl PlayerCore {
                display: Display, player_type: &str) -> PlayerCore {
 
         let enum_player_type = match player_type {
-            "Player" => PlayerCoreType::Player,
+            "Player"   => PlayerCoreType::Player,
             "Friendly" => PlayerCoreType::Friendly,
-            "Neutral" => PlayerCoreType::Neutral,
-            "Hostile" => PlayerCoreType::Hostile,
-            _ => PlayerCoreType::Unknown,
+            "Neutral"  => PlayerCoreType::Neutral,
+            "Hostile"  => PlayerCoreType::Hostile,
+            _          => PlayerCoreType::Unknown,
         };
 
         PlayerCore {
@@ -213,8 +212,6 @@ impl PlayerCore {
 
         self.moves += 1;
 
-        // TO-DO: It would be better if self.player_type was
-        // an 'enum'. How can I make this work?
         if self.player_type == PlayerCoreType::Player {
                 self.emit_stats();
         }
