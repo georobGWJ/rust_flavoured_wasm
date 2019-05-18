@@ -62,6 +62,9 @@ export function __wbg_draw_f465bfbb141acf91(arg0, arg1, arg2, arg3, arg4, arg5, 
     let varg5 = getStringFromWasm(arg5, arg6);
     getObject(arg0).draw(arg1, arg2, varg3, varg5);
 }
+/**
+*/
+export const PlayerCoreType = Object.freeze({ Player:0,Friendly:1,Neutral:2,Hostile:3,Unknown:4, });
 
 function addHeapObject(obj) {
     if (heap_next === heap.length) heap.push(heap.length + 1);

@@ -48,13 +48,15 @@ struct GridPoint {
 }
 
 // Each PlayerCore is one of these
-// #[wasm_bindgen]
-// pub enum PlayerCoreType {
-//     Player,
-//     Friendly,
-//     Neutral,
-//     Hostile,
-// }
+#[wasm_bindgen]
+#[derive(Debug, PartialEq)]
+pub enum PlayerCoreType {
+    Player,
+    Friendly,
+    Neutral,
+    Hostile,
+    Unknown,
+}
 
 #[wasm_bindgen]
 pub struct RustEngine {
@@ -163,7 +165,7 @@ pub struct PlayerCore {
     max_hp: i32,
     icon: String,
     color: String,
-    player_type: String,
+    player_type: PlayerCoreType,
 }
 
 #[wasm_bindgen]
@@ -171,6 +173,15 @@ impl PlayerCore {
     #[wasm_bindgen(constructor)]
     pub fn new(x: i32, y: i32, icon: &str, color: &str, 
                display: Display, player_type: &str) -> PlayerCore {
+
+        let enum_player_type = match player_type {
+            "Player" => PlayerCoreType::Player,
+            "Friendly" => PlayerCoreType::Friendly,
+            "Neutral" => PlayerCoreType::Neutral,
+            "Hostile" => PlayerCoreType::Hostile,
+            _ => PlayerCoreType::Unknown,
+        };
+
         PlayerCore {
             loc: GridPoint { x, y },
             moves: 0,
@@ -179,7 +190,7 @@ impl PlayerCore {
             max_hp: 100,
             icon: icon.to_owned(),
             color: color.to_owned(),
-            player_type: player_type.to_owned(),
+            player_type: enum_player_type,
         }
     }
 
@@ -204,7 +215,7 @@ impl PlayerCore {
 
         // TO-DO: It would be better if self.player_type was
         // an 'enum'. How can I make this work?
-        if self.player_type == String::from("Player") {
+        if self.player_type == PlayerCoreType::Player {
                 self.emit_stats();
         }
     }

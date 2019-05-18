@@ -1,6 +1,15 @@
 /* tslint:disable */
 /**
 */
+export enum PlayerCoreType {
+  Player,
+  Friendly,
+  Neutral,
+  Hostile,
+  Unknown,
+}
+/**
+*/
 export class PlayerCore {
   free(): void;
 /**
