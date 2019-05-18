@@ -27,7 +27,11 @@ extern "C" {
 
     #[wasm_bindgen(method, structural, js_name = draw, js_namespace = ROT)]
     fn draw_color(this: &Display, x: i32, y: i32, ch: &str, color: &str);
+    
+    //pub type ROT.Engine;
 
+    // #[wasm_bindgen(method, structural, js_name = lock, js_namespace = ROT)]
+    // fn lock(this: &Engine);
 }
 
 #[derive(Serialize)]
@@ -53,17 +57,17 @@ struct GridPoint {
 // }
 
 #[wasm_bindgen]
-pub struct Engine {
+pub struct RustEngine {
     display: Display,
     points: HashMap<GridPoint, String>,
     prize_location: Option<GridPoint>,
 }
 
 #[wasm_bindgen]
-impl Engine {
+impl RustEngine {
     #[wasm_bindgen(constructor)]
-    pub fn new(display: Display) -> Engine {
-        Engine {
+    pub fn new(display: Display) -> RustEngine {
+        RustEngine {
             display,
             points: HashMap::new(),
             prize_location: None,
@@ -109,6 +113,7 @@ impl Engine {
         if let Some(ref loc) = self.prize_location {
             if *loc == spot {
                 alert("Congrats! You've found the WebAssembly Module!");
+                //self.lock();
             } else {
                 alert("Uh Oh! That chest had a trap on it!");
                 pc.take_damage(30);

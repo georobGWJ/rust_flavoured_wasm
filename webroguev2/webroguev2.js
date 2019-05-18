@@ -115,94 +115,6 @@ export function __wbindgen_throw(ptr, len) {
     throw new Error(getStringFromWasm(ptr, len));
 }
 
-function freeEngine(ptr) {
-
-    wasm.__wbg_engine_free(ptr);
-}
-/**
-*/
-export class Engine {
-
-    free() {
-        const ptr = this.ptr;
-        this.ptr = 0;
-        freeEngine(ptr);
-    }
-
-    /**
-    * @param {any} display
-    * @returns {}
-    */
-    constructor(display) {
-        this.ptr = wasm.engine_new(addHeapObject(display));
-    }
-    /**
-    * @param {number} x
-    * @param {number} y
-    * @param {number} val
-    * @returns {void}
-    */
-    on_dig(x, y, val) {
-        return wasm.engine_on_dig(this.ptr, x, y, val);
-    }
-    /**
-    * @returns {void}
-    */
-    draw_map() {
-        return wasm.engine_draw_map(this.ptr);
-    }
-    /**
-    * @param {number} x
-    * @param {number} y
-    * @returns {void}
-    */
-    redraw_at(x, y) {
-        return wasm.engine_redraw_at(this.ptr, x, y);
-    }
-    /**
-    * @param {number} x
-    * @param {number} y
-    * @returns {void}
-    */
-    place_box(x, y) {
-        return wasm.engine_place_box(this.ptr, x, y);
-    }
-    /**
-    * @param {PlayerCore} pc
-    * @param {number} x
-    * @param {number} y
-    * @returns {void}
-    */
-    open_box(pc, x, y) {
-        return wasm.engine_open_box(this.ptr, pc.ptr, x, y);
-    }
-    /**
-    * @param {number} x
-    * @param {number} y
-    * @returns {void}
-    */
-    mark_wasmprize(x, y) {
-        return wasm.engine_mark_wasmprize(this.ptr, x, y);
-    }
-    /**
-    * @param {PlayerCore} pc
-    * @param {number} x
-    * @param {number} y
-    * @returns {void}
-    */
-    move_player(pc, x, y) {
-        return wasm.engine_move_player(this.ptr, pc.ptr, x, y);
-    }
-    /**
-    * @param {number} x
-    * @param {number} y
-    * @returns {boolean}
-    */
-    free_cell(x, y) {
-        return (wasm.engine_free_cell(this.ptr, x, y)) !== 0;
-    }
-}
-
 function freePlayerCore(ptr) {
 
     wasm.__wbg_playercore_free(ptr);
@@ -282,6 +194,94 @@ export class PlayerCore {
     */
     take_damage(hits) {
         return wasm.playercore_take_damage(this.ptr, hits);
+    }
+}
+
+function freeRustEngine(ptr) {
+
+    wasm.__wbg_rustengine_free(ptr);
+}
+/**
+*/
+export class RustEngine {
+
+    free() {
+        const ptr = this.ptr;
+        this.ptr = 0;
+        freeRustEngine(ptr);
+    }
+
+    /**
+    * @param {any} display
+    * @returns {}
+    */
+    constructor(display) {
+        this.ptr = wasm.rustengine_new(addHeapObject(display));
+    }
+    /**
+    * @param {number} x
+    * @param {number} y
+    * @param {number} val
+    * @returns {void}
+    */
+    on_dig(x, y, val) {
+        return wasm.rustengine_on_dig(this.ptr, x, y, val);
+    }
+    /**
+    * @returns {void}
+    */
+    draw_map() {
+        return wasm.rustengine_draw_map(this.ptr);
+    }
+    /**
+    * @param {number} x
+    * @param {number} y
+    * @returns {void}
+    */
+    redraw_at(x, y) {
+        return wasm.rustengine_redraw_at(this.ptr, x, y);
+    }
+    /**
+    * @param {number} x
+    * @param {number} y
+    * @returns {void}
+    */
+    place_box(x, y) {
+        return wasm.rustengine_place_box(this.ptr, x, y);
+    }
+    /**
+    * @param {PlayerCore} pc
+    * @param {number} x
+    * @param {number} y
+    * @returns {void}
+    */
+    open_box(pc, x, y) {
+        return wasm.rustengine_open_box(this.ptr, pc.ptr, x, y);
+    }
+    /**
+    * @param {number} x
+    * @param {number} y
+    * @returns {void}
+    */
+    mark_wasmprize(x, y) {
+        return wasm.rustengine_mark_wasmprize(this.ptr, x, y);
+    }
+    /**
+    * @param {PlayerCore} pc
+    * @param {number} x
+    * @param {number} y
+    * @returns {void}
+    */
+    move_player(pc, x, y) {
+        return wasm.rustengine_move_player(this.ptr, pc.ptr, x, y);
+    }
+    /**
+    * @param {number} x
+    * @param {number} y
+    * @returns {boolean}
+    */
+    free_cell(x, y) {
+        return (wasm.rustengine_free_cell(this.ptr, x, y)) !== 0;
     }
 }
 

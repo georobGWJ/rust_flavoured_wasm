@@ -1,15 +1,15 @@
 /* tslint:disable */
 export const memory: WebAssembly.Memory;
-export function __wbg_engine_free(a: number): void;
-export function engine_new(a: number): number;
-export function engine_on_dig(a: number, b: number, c: number, d: number): void;
-export function engine_draw_map(a: number): void;
-export function engine_redraw_at(a: number, b: number, c: number): void;
-export function engine_place_box(a: number, b: number, c: number): void;
-export function engine_open_box(a: number, b: number, c: number, d: number): void;
-export function engine_mark_wasmprize(a: number, b: number, c: number): void;
-export function engine_move_player(a: number, b: number, c: number, d: number): void;
-export function engine_free_cell(a: number, b: number, c: number): number;
+export function __wbg_rustengine_free(a: number): void;
+export function rustengine_new(a: number): number;
+export function rustengine_on_dig(a: number, b: number, c: number, d: number): void;
+export function rustengine_draw_map(a: number): void;
+export function rustengine_redraw_at(a: number, b: number, c: number): void;
+export function rustengine_place_box(a: number, b: number, c: number): void;
+export function rustengine_open_box(a: number, b: number, c: number, d: number): void;
+export function rustengine_mark_wasmprize(a: number, b: number, c: number): void;
+export function rustengine_move_player(a: number, b: number, c: number, d: number): void;
+export function rustengine_free_cell(a: number, b: number, c: number): number;
 export function __wbg_playercore_free(a: number): void;
 export function playercore_new(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number): number;
 export function playercore_x(a: number): number;

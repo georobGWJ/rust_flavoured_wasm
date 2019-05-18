@@ -1,4 +1,4 @@
-import { Engine, PlayerCore } from './webroguev2';
+import { RustEngine, PlayerCore } from './webroguev2';
 
 var Game = {
     display: null,
@@ -10,7 +10,7 @@ var Game = {
         this.display = new ROT.Display({ width: 90, height: 30, bg: "#0f2851" });
         document.getElementById("rogueCanvas").appendChild(this.display.getContainer());
 
-        this.engine = new Engine(this.display);
+        this.engine = new RustEngine(this.display);
         this.generateMap();
 
         var scheduler = new ROT.Scheduler.Simple();
