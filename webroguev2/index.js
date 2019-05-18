@@ -161,7 +161,11 @@ Player.prototype.handleEvent = function (e) {
     Game.rust_engine.move_player(this._core, newX, newY);
     window.removeEventListener("keydown", this);
     // TO-DO: Add checks for HP <= 0 or Win State achieved here!
-    Game.rot_engine.unlock();
+    if (this._core.hp() <= 0) {
+        Game.rot_engine.lock();
+    } else {
+        Game.rot_engine.unlock();
+    }
 }
 
 Player.prototype.getX = function () { return this._core.x(); }

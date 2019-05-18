@@ -172,6 +172,12 @@ export class PlayerCore {
         return wasm.playercore_y(this.ptr);
     }
     /**
+    * @returns {number}
+    */
+    hp() {
+        return wasm.playercore_hp(this.ptr);
+    }
+    /**
     * @returns {void}
     */
     draw() {

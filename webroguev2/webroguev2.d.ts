@@ -31,6 +31,10 @@ export class PlayerCore {
 */
   y(): number;
 /**
+* @returns {number} 
+*/
+  hp(): number;
+/**
 * @returns {void} 
 */
   draw(): void;

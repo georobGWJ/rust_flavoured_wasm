@@ -201,6 +201,10 @@ impl PlayerCore {
         self.loc.y
     }
 
+    pub fn hp(&self) -> i32 {
+        self.hp
+    }
+
     pub fn draw(&self) {
         &self.display
              .draw_color(self.loc.x, self.loc.y, &self.icon, &self.color);

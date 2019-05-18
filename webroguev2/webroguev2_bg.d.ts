@@ -14,6 +14,7 @@ export function __wbg_playercore_free(a: number): void;
 export function playercore_new(a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number): number;
 export function playercore_x(a: number): number;
 export function playercore_y(a: number): number;
+export function playercore_hp(a: number): number;
 export function playercore_draw(a: number): void;
 export function playercore_move_to(a: number, b: number, c: number): void;
 export function playercore_emit_stats(a: number): void;
