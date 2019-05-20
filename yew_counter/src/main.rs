@@ -1,3 +1,10 @@
+// Compile using:
+// cargo web build --target=wasm32-unknown-unknown
+
+// Start a Dev server using:
+// cargo web start --target=wasm32-unknown-unknown
+
+
 extern crate yew;
 extern crate yew_counter;  // Access to ./src/lib.rs
 
