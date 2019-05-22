@@ -23,16 +23,19 @@ fn main() -> Result<(), Box<Error>>{
         .expect("Failed to instantiate WASM module...")
         .assert_no_start();
 
+    // This logic parges values into WASM interpretable data structures
     let mut args = Vec::<RuntimeValue>::new();
     args.push(RuntimeValue::from(28));
     args.push(RuntimeValue::from(14));
 
+    // function name and case must match that in the wasm file exactly
     let result: Option<RuntimeValue> = 
         instance.invoke_export("add", &args, &mut NopExternals)?;
 
+    // wasmi returns values as enum, so we can pattern match!
     match result {
         Some(RuntimeValue::I32(v)) => {
-            println!("The answer to your question is {}", v);
+            println!("The answer to your question is {}.", v);
         },
         Some(_) => {
             println!("What? What is that data type?!?");
