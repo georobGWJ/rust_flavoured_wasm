@@ -16,7 +16,6 @@ pub enum PieceColor {
     Black,
 }
 
-#[derive(Debug)]
 pub struct CheckersGame {
     runtime: Runtime,
     module_instance: ModuleRef,
@@ -40,7 +39,7 @@ impl CheckersGame {
     pub fn init(&mut self) -> Result<()> {
         self.module_instance
             .invoke_export("initBoard", &[], &mut self.runtime)?;
-        OK(())
+        Ok(())
     }
 
     // Call move using simple i32 coord values
@@ -87,13 +86,13 @@ impl CheckersGame {
         let header = r#"
   0   1   2   3   4   5   6   7
 .---.---.---.---.---.---.---.---."#;
-        let footer = "  `---^---^---^---^---^---^---^---^";
+        let footer = " ^---^---^---^---^---^---^---^---^";
 
         let middle_string = match export {
             Some(ExternVal::Memory(mr)) => gen_board(&mr),
             _ => " -- no board data found --".to_string(),
         };
-        Ok(format!("{}\n{}\n{}"), header, middle_string, footer))
+        Ok(format!("{}\n{}\n{}", header, middle_string, footer))
     }
 }
 

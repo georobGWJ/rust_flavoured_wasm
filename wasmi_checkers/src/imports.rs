@@ -1,5 +1,5 @@
 use wasmi::{ Error as InterpreterError, FuncInstance, 
-    FuncRef, ModuleImportResolver, ValueType, };
+    FuncRef, ModuleImportResolver, Signature, ValueType, };
 
 pub const PIECEMOVED_INDEX: usize = 0;
 pub const PIECECROWNED_INDEX: usize = 1;
@@ -24,8 +24,8 @@ impl <'a> ModuleImportResolver for RuntimeModuleImportResolver {
             "piecemoved" => FuncInstance::alloc_host(
                 Signature::new(
                     &[ 
-                        ValueType: I32, ValueType: I32, 
-                        ValueType: I32, ValueType: I32 
+                        ValueType::I32, ValueType::I32, 
+                        ValueType::I32, ValueType::I32 
                     ][..],
                     None,
                 ),
@@ -34,7 +34,7 @@ impl <'a> ModuleImportResolver for RuntimeModuleImportResolver {
             // Provide a FuncRef for the piececrowned() function
             "piececrowned" => FuncInstance::alloc_host(
                 Signature::new(
-                    &[ValueType: I32, ValueType: I32,][..], None),
+                    &[ValueType::I32, ValueType::I32,][..], None),
                 PIECECROWNED_INDEX,
             ),
             // Return an Error when trying to import an unknown function
