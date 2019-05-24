@@ -23,7 +23,7 @@ fn main() -> Result<(), Box<Error>> {
         game.get_turn_owner()?
     );
     
-    game.move_piece(&(1, 5), &(0, 4))?;
+    game.move_piece(&(0, 5), &(2, 3))?;
     
     println!(
         "After first move, current turn is : {:?}",

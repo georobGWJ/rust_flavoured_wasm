@@ -230,7 +230,7 @@
         )
     )
 
-    ;; Ensures reavel is 1 or 2 Squares
+    ;; Ensures travel is 1 or 2 Squares
     (func $validJumpDistance (param $from i32) (param $to i32) (result i32)
         (local $d i32)
         (set_local $d
@@ -311,21 +311,21 @@
         (call $setPiece (i32.const 5) (i32.const 2) (i32.const 2))
         (call $setPiece (i32.const 7) (i32.const 2) (i32.const 2))
 
-        ;; Place Black pieces at the top of the board
-        (call $setPiece (i32.const 1) (i32.const 5) (i32.const 1))
-        (call $setPiece (i32.const 3) (i32.const 5) (i32.const 1))
-        (call $setPiece (i32.const 5) (i32.const 5) (i32.const 1))
-        (call $setPiece (i32.const 7) (i32.const 5) (i32.const 1))
+        ;; Place Black pieces at the bottom of the board
+        (call $setPiece (i32.const 0) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 2) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 4) (i32.const 5) (i32.const 1))
+        (call $setPiece (i32.const 6) (i32.const 5) (i32.const 1))
 
-        (call $setPiece (i32.const 0) (i32.const 6) (i32.const 1))
-        (call $setPiece (i32.const 2) (i32.const 6) (i32.const 1))
-        (call $setPiece (i32.const 4) (i32.const 6) (i32.const 1))
-        (call $setPiece (i32.const 6) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 1) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 3) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 5) (i32.const 6) (i32.const 1))
+        (call $setPiece (i32.const 7) (i32.const 6) (i32.const 1))
 
-        (call $setPiece (i32.const 1) (i32.const 7) (i32.const 1))
-        (call $setPiece (i32.const 3) (i32.const 7) (i32.const 1))
-        (call $setPiece (i32.const 5) (i32.const 7) (i32.const 1))
-        (call $setPiece (i32.const 7) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 0) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 2) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 4) (i32.const 7) (i32.const 1))
+        (call $setPiece (i32.const 6) (i32.const 7) (i32.const 1))
 
         (call $setTurnOwner (i32.const 1))  ;; Black goes first
     )
