@@ -70,8 +70,37 @@ fn set_leds(values: [LedColor; 8]) {
 
 #[cfg(test)]
 mod tests {
+
+    use super::{OFF, YELLOW, RED, GREEN, get_led_values};
+
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn test_0_percent() {
+        assert_eq!(get_led_values(0.0), 
+            [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]);
     }
+
+    #[test]
+    fn test_15_percent() {
+        assert_eq!(get_led_values(15.0), 
+            [RED, RED, OFF, OFF, OFF, OFF, OFF, OFF]);
+    }
+
+    #[test]
+    fn test_49_percent() {
+        assert_eq!(get_led_values(49.0), 
+            [YELLOW, YELLOW, YELLOW, YELLOW, OFF, OFF, OFF, OFF]);
+    }
+
+    #[test]
+    fn test_75_percent() {
+        assert_eq!(get_led_values(75.0), 
+            [GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, OFF, OFF]);
+    }
+
+    #[test]
+    fn test_100_percent() {
+        assert_eq!(get_led_values(100.0), 
+            [GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN]);
+    }
+
 }
