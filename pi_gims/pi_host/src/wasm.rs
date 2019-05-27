@@ -6,7 +6,7 @@ use wasmi::{
     ModuleRef, RuntimeArgs, RuntimeValue, Signature, Trap, ValueType,
 };
 
-// 1
+// Conditionally add Blinkt to project scope
 #[cfg(any(target_arch = "armv7", target_arch = "arm"))]
 use blinkt::Blinkt;
 
@@ -49,7 +49,7 @@ impl From<InterpreterError> for Error {
 
 impl HostError for Error {}
 
-// 2
+// Conditionally add Blinkt to Runtime struct
 pub struct Runtime {
     #[cfg(any(target_arch = "armv7", target_arch = "arm"))]
     blinkt: Blinkt,
@@ -81,6 +81,7 @@ impl Runtime {
 impl Externals for Runtime {
     fn invoke_index(&mut self, index: usize, args: RuntimeArgs)
         -> Result<Option<RuntimeValue>, Trap> {
+            // The apply() function with have an index of 0
         match index {
             0 =>    {
                 let idx: i32 = args.nth(0);
@@ -92,5 +93,87 @@ impl Externals for Runtime {
             },
             _ => panic!("Unknown function index!"),
         }
+    }
+}
+
+impl Runtime {
+    #[cfg(not(any(target_arch = "armv7", target_arch = "arm")))]
+    fn set_led(&self, idx: i32, red: i32, green: i32, blue: i32) {
+        println!("[LED {}]:\t{},  {},  {}", idx, red, green, blue);
+    }
+
+    #[cfg(any(target_arch = "armv7", target_arch = "arm"))]
+    fn set_led(&self, idx: i32, red: i32, green: i32, blue: i32) {
+        self.blinkt
+            .set_pixel(idx as usize, red as u8, green as u8, blue as u8);
+        self.blinkt.show.unwrap();
+    }
+
+    #[cfg(not(any(target_arch = "armv7", target_arch = "arm")))]
+    pub fn shutdown(&mut self) {
+        println!("WASM runtime shut down.");
+        self.halt();
+    }
+
+    #[cfg(any(target_arch = "armv7", target_arch = "arm"))]
+    pub fn shutdown(&mut self) {
+        println!("WASM runtime shut down.");
+        self.blinkt.clear();
+        self.blinkt.cleanup.unwrap();
+        self.halt();
+    }
+
+    fn halt(&self) {
+        ::std::process::exit(0);
+    }
+
+    pub fn reduce_battery(&mut self) {
+        self.remaining_battery -= 1.0;
+        if self.remaining_battery < 0.0 {
+            self.remaining_battery = 100.0;
+        }
+    }
+
+    pub fn advance_frame(&mut self) {
+        self.frame += 1;
+
+        if self.frame > 1_000_000_000 {
+            self.frame = 0;
+        }
+    }
+}
+
+struct RuntimeModuleImportResolver;
+
+impl<'a> ModuleImportResolver for RuntimeModuleImportResolver {
+    fn resolve_func(
+        &self,
+        field_name: &str,
+        _signature: &Signature,
+    ) ->Result<FuncRef, InterpreterError> {
+        println!("Resolving {}", field_name);
+        // The set_led() function is the only one exported by the host
+        // and imported by the module
+        let func_ref = match field_name {
+            "set_led" => FuncInstance::alloc_host(
+                Signature::new(
+                    &[
+                        ValueType::I32,
+                        ValueType::I32,
+                        ValueType::I32,
+                        ValueType::I32,
+                    ][..],
+                    None,
+                ),
+                0,
+            ),
+            _ => {
+                return Err(InterpreterError::Function(format!(
+                    "host module doesn't export function with name {}",
+                    field_name
+                )))
+            }
+        };
+        Ok(func_ref)
     }
 }
