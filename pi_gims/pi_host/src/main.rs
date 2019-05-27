@@ -43,7 +43,6 @@ fn watch(tx_wasm: Sender<RunnerCommand>) -> notify::Result<()> {
 }
 
 fn handle_event(event: DebouncedEvent, tx_wasm: &Sender<RunnerCommand>) {
-    // 2a
     match event {
         DebouncedEvent::NoticeWrite(path) => {
             let path = Path::new(&path);
@@ -115,7 +114,7 @@ fn main() {
         tx_wasm_sig.send(RunnerCommand::Stop).unwrap();
     }).expect("Error setting Ctrl-C handler");
 
-    // 4
+    // The watch() function blocks the main thread with an infinite loop
     if let Err(e) = watch(tx_wasm) {
         println!("error: {:?}", e)
     }
