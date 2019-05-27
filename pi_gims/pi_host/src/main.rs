@@ -23,9 +23,9 @@ enum RunnerCommand {
     Stop,
 }
 
-// 1
 fn watch(tx_wasm: Sender<RunnerCommand>) -> notify::Result<()> {
-    // 1
+    // Creates a multi-producer (broadcaster), single-consumer (listener) channel
+    // This allows cross-communications between threads.
     let (tx, rx) = channel();
 
     let mut watcher: RecommendedWatcher = 
@@ -33,7 +33,7 @@ fn watch(tx_wasm: Sender<RunnerCommand>) -> notify::Result<()> {
     watcher.watch(MODULE_DIR, RecursiveMode::NonRecursive)?;
 
     loop {
-        // 2
+        // Block the receive channel until after a message arrives
         match rx.recv() {
             Ok(event) => handle_event(event, &tx_wasm),
             Err(e) => println!("watch error: {:?}", e),
@@ -49,6 +49,8 @@ fn handle_event(event: DebouncedEvent, tx_wasm: &Sender<RunnerCommand>) {
             let path = Path::new(&path);
             let filename = path.file_name().unwrap();
             if filename == "indicator.wasm" {
+                // Send message on channel, indicating that we should reload
+                // the WASM module
                 tx_wasm.send(RunnerCommand::Reload).unwrap();
             } else {
                 println!("write (unexpected file): {:?}", path);
@@ -60,5 +62,61 @@ fn handle_event(event: DebouncedEvent, tx_wasm: &Sender<RunnerCommand>) {
 
 
 fn main() {
-    println!("Hello, world!");
+    let (tx_wasm, rx_wasm) = channel();
+    let _indicator_runner = thread::spawn(move || {
+        let mut runtime = Runtime::new();
+        let mut module = wasm::get_module_instance(MODULE_FILE);
+        println!("Starting wasm runner thread...");
+
+        loop {
+            // 100 milliseconds translates to 10 frames per second.
+            match rx_wasm.recv_timeout(Duration_from_millis(100)) {
+                Ok(RunnerCommand::Reload) => {
+                    println!("Received a reload signal, sleeping for 2 secs.");
+                    thread::sleep(Duration::from_secs(2));
+                    module = wasm::get_module_instance(MODULE_FILE);
+                },
+                Ok(RunnerCommand::Stop) => {
+                    runtime.shutdown();
+                    break;
+                },
+                Err(RecvTimeoutError::Timeout) => {
+                    runtime.reduce_battery();
+                    runtime.advance_frame();
+
+                    module
+                        .invoke_export(
+                            "sensor_update",
+                            &[
+                                RuntimeValue::from(wasm::SENSOR_BATTERY),
+                                RuntimeValue::F64(
+                                    runtime.remaining_battery.into()),
+                            ][..],
+                            &mut runtime,
+                        ).unwrap();
+
+                    module
+                        .invoke_export(
+                            "apply",
+                            &[RuntimeValue::from(runtime.frame)][..],
+                            &mut runtime,
+                        ).unwrap();
+                },
+                Err(_) => break,
+            }
+        }
+    });
+
+    // Send channels can be cloned for multi-producer channels
+    let tx_wasm_sig = tx_wasm.clone();
+
+    // The `ctrlc` crate traps and handles SIGTERM and SIGINT signals
+    ctrlc::set_handler(move || {
+        tx_wasm_sig.send(RunnerCommand::Stop).unwrap();
+    }).expect("Error setting Ctrl-C handler");
+
+    // 4
+    if let Err(e) = watch(tx_wasm) {
+        println!("error: {:?}", e)
+    }
 }
