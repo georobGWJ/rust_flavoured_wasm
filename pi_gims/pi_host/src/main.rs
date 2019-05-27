@@ -23,6 +23,42 @@ enum RunnerCommand {
     Stop,
 }
 
+// 1
+fn watch(tx_wasm: Sender<RunnerCommand>) -> notify::Result<()> {
+    // 1
+    let (tx, rx) = channel();
+
+    let mut watcher: RecommendedWatcher = 
+        Watcher::new(tx, Duration::from_secs(1))?;
+    watcher.watch(MODULE_DIR, RecursiveMode::NonRecursive)?;
+
+    loop {
+        // 2
+        match rx.recv() {
+            Ok(event) => handle_event(event, &tx_wasm),
+            Err(e) => println!("watch error: {:?}", e),
+        }
+    }
+
+}
+
+fn handle_event(event: DebouncedEvent, tx_wasm: &Sender<RunnerCommand>) {
+    // 2a
+    match event {
+        DebouncedEvent::NoticeWrite(path) => {
+            let path = Path::new(&path);
+            let filename = path.file_name().unwrap();
+            if filename == "indicator.wasm" {
+                tx_wasm.send(RunnerCommand::Reload).unwrap();
+            } else {
+                println!("write (unexpected file): {:?}", path);
+            }
+        },
+        _ => {}
+    }
+}
+
+
 fn main() {
     println!("Hello, world!");
 }
