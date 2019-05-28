@@ -13,10 +13,10 @@ use std::time::Duration;
 use wasm::Runtime;
 use wasmi::RuntimeValue;
 
-const MODULE_FILE: &'static str = 
-    "/Users/georob/Desktop/spike/wasm/rust_flavoured_wasm/pi_gims/indicator.wasm";
-const MODULE_DIR: &'static str = 
-    "/Users/georob/Desktop/spike/wasm/rust_flavoured_wasm/pi_gims/";
+const MODULE_FILE: &'static str =
+    "C:\\Users\\r.turnerjr\\spike\\wasm\\rust_flavoured_wasm\\pi_gims\\indicator.wasm";
+const MODULE_DIR: &'static str =
+    "C:\\Users\\r.turnerjr\\spike\\wasm\\rust_flavoured_wasm\\pi_gims";
 
 enum RunnerCommand {
     Reload,
@@ -28,7 +28,7 @@ fn watch(tx_wasm: Sender<RunnerCommand>) -> notify::Result<()> {
     // This allows cross-communications between threads.
     let (tx, rx) = channel();
 
-    let mut watcher: RecommendedWatcher = 
+    let mut watcher: RecommendedWatcher =
         Watcher::new(tx, Duration::from_secs(1))?;
     watcher.watch(MODULE_DIR, RecursiveMode::NonRecursive)?;
 

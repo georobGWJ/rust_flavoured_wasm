@@ -81,13 +81,13 @@ impl Runtime {
 impl Externals for Runtime {
     fn invoke_index(&mut self, index: usize, args: RuntimeArgs)
         -> Result<Option<RuntimeValue>, Trap> {
-            // The apply() function with have an index of 0
+            // The apply() function will have an index of 0
         match index {
             0 =>    {
-                let idx: i32 = args.nth(0);
-                let red: i32 = args.nth(1);
+                let idx:   i32 = args.nth(0);
+                let red:   i32 = args.nth(1);
                 let green: i32 = args.nth(2);
-                let blue: i32 = args.nth(3);
+                let blue:  i32 = args.nth(3);
                 self.set_led(idx, red, green, blue);
                 Ok(None)
             },
@@ -103,10 +103,10 @@ impl Runtime {
     }
 
     #[cfg(any(target_arch = "armv7", target_arch = "arm"))]
-    fn set_led(&self, idx: i32, red: i32, green: i32, blue: i32) {
+    fn set_led(&mut self, idx: i32, red: i32, green: i32, blue: i32) {
         self.blinkt
             .set_pixel(idx as usize, red as u8, green as u8, blue as u8);
-        self.blinkt.show.unwrap();
+        self.blinkt.show().unwrap();
     }
 
     #[cfg(not(any(target_arch = "armv7", target_arch = "arm")))]
@@ -119,7 +119,7 @@ impl Runtime {
     pub fn shutdown(&mut self) {
         println!("WASM runtime shut down.");
         self.blinkt.clear();
-        self.blinkt.cleanup.unwrap();
+        self.blinkt.cleanup().unwrap();
         self.halt();
     }
 
@@ -150,7 +150,7 @@ impl<'a> ModuleImportResolver for RuntimeModuleImportResolver {
         &self,
         field_name: &str,
         _signature: &Signature,
-    ) ->Result<FuncRef, InterpreterError> {
+    ) -> Result<FuncRef, InterpreterError> {
         println!("Resolving {}", field_name);
         // The set_led() function is the only one exported by the host
         // and imported by the module
