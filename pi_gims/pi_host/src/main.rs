@@ -69,7 +69,7 @@ fn main() {
 
         loop {
             // 100 milliseconds translates to 10 frames per second.
-            match rx_wasm.recv_timeout(Duration_from_millis(100)) {
+            match rx_wasm.recv_timeout(Duration::from_millis(100)) {
                 Ok(RunnerCommand::Reload) => {
                     println!("Received a reload signal, sleeping for 2 secs.");
                     thread::sleep(Duration::from_secs(2));
@@ -119,3 +119,5 @@ fn main() {
         println!("error: {:?}", e)
     }
 }
+
+mod wasm;

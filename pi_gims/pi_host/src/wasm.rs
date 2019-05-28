@@ -18,7 +18,7 @@ fn load_module(path: &str) -> Module {
     Module::from_buffer(&wasm_buf).unwrap()
 }
 
-fn get_module_instance(path: &str) -> ModuleRef {
+pub fn get_module_instance(path: &str) -> ModuleRef {
     let module = load_module(path);
     let mut imports = ImportsBuilder::new();
     imports.push_resolver("env", &RuntimeModuleImportResolver);
