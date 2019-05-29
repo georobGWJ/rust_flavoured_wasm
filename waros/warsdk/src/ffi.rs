@@ -18,3 +18,4 @@ extern "C" {
     pub fn watan(degree: i32) -> i32;
     pub fn plot_course(tx: i32, ty: i32) -> i32;
 }
+
