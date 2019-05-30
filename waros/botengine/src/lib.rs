@@ -2,7 +2,7 @@
 // and behavior. The combatant is a wrapper atound the loading, parsing,
 // and interpreting of the WASM modules.
 
-use std::format;
+use std::fmt;
 use std::sync::Arc;
 use std::thread;
 use std::thread::JoinHandle;
@@ -46,6 +46,7 @@ impl Combatant {
             println!("bot init loop exited for player {} - {:?}", n, res);
         })
     }
+
     fn get_module_instance_from_module(module: &Module) ->  Result<ModuleRef> {
         let mut imports = ImportsBuilder::new();
         imports.push_resolver("env", &runtime::RuntimeModuleImportResolver);
@@ -54,6 +55,74 @@ impl Combatant {
             .assert_no_start())
     }
 }
+
+/// A botengine error
+#[derive(Debug)]
+pub struct Error {
+    kind: Kind,
+}
+
+/// Implements the wasmi HostError trait
+impl HostError for Error {}
+
+/// Implement standard error trait for the botengine error
+impl std::error::Error for Error {
+
+    fn description(&self) -> &str {
+        "A botengine library error occurred."
+    }
+    
+    fn cause(&self) -> Option<&std::error::Error> {
+        None
+    }
+}
+
+/// Ensure that the botengine error can be string formatted
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self.kind {
+            Kind::InterpreterError(ref s) => fmt::Display::fmt(s, f),
+            Kind::MiscFailure(ref s) => fmt::Display::fmt(s, f),
+            Kind::IoError(ref s) => fmt::Display::fmt(s, f),
+            Kind::ExportResolve(ref s) => fmt::Display::fmt(s, f),
+        }
+    }
+}
+
+/// Creates a botengine error from an I/O Error
+impl From<std::io::Error> for Error {
+    fn from(source: std::io::Error) -> Error {
+        Error {
+            kind: Kind::IoError(source),
+        }
+    }
+}
+
+/// Creates a botengine error from an Interpreter Error
+impl From<wasmi::Error> for Error {
+    fn from(source: wasmi::Error) -> Error {
+        Error {
+            kind: Kind::InterpreterError(source),
+        }
+    }
+}
+
+/// Indicates the kind of error that occurred
+#[derive(Debug)]
+#[derive(Debug)]
+enum Kind {
+    InterpreterError(wasmi::Error),
+    IoError(std::io::Error),
+    ExportResolve(String),
+    MiscFailure(String),
+}
+
+/// A Result where failure is a botengine error
+pub type Result<T> = std::result::Result<T, Error>;
+
+mod events;
+mod game;
+mod runtime;
 
 #[cfg(test)]
 mod tests {
