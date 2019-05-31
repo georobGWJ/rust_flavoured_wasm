@@ -61,6 +61,9 @@ impl Gameloop {
     }
 }
 
+// Type aliases to keep code below a little cleaner
+// Note that the GameState struct holds an atomically reference counted
+// (Arc) read-write lock on a hash map for each component
 pub type ReadWriteLocked<T> = Arc<RwLock<T>>;
 pub type ComponentHash<T> = ReadWriteLocked<HashMap<String, T>>;
 
@@ -91,7 +94,9 @@ impl GameState {
         self.motion_components
             .write()
             .unwrap()
+            //entry() checks if a reference to the item exists
             .entry(module_name.to_string())
+            // if not ir instantiates and pushes the item in
             .or_insert(MotionComponent::new());
 
         self.damage_components
