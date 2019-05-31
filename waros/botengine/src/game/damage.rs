@@ -116,3 +116,46 @@ impl DamageSystem {
         );
     }
 }
+
+#[derive(Debug)]
+pub enum DamageStatus {
+    Alive,
+    Dead,
+}
+
+#[derive(Debug)]
+pub enum DamageKind {
+    Collision(CollisionType),
+    Projectile,
+}
+
+
+#[derive(Debug)]
+pub struct DamageComponent {
+    pub damage: u32,
+    pub tatus: DamgeStatus,
+}
+
+impl DamageComponent {
+
+    pub fn new() -> DamageComponent {
+        DamageComponent {
+            damage: 0,
+            status: DamageStatus::Alive,
+        }
+    }
+
+    pub fn dead(&self) -> bool {
+        match self.status {
+            DamageStatus::Dead => true,
+            _ => false,
+        }
+    }
+
+    fn add_damage(&mut self, amount: u32) {
+        self.damage += amount; // death will be checked at the end of this tick
+    }
+}
+
+const DAMAGE_COLLISION: u32 = 2;
+pub const DAMAGE_MAX: u32 = 100;
