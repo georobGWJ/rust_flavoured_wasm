@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Robert Turner Jr <georob23@gmail.com>"]
 edition = "2018"
 
-[dependencies]
+[lib]
 crate-type = ["cdylib"]
 
 [dependencies]
