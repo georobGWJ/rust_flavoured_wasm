@@ -2,4 +2,6 @@
 members = [
     "botengine",
     "warsdk",
+    "dumbotrs",
+    "rook",
 ]
