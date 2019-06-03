@@ -4,8 +4,8 @@ use self::projectiles::*;
 use self::scanner::*;
 use crate::events::GameEvent;
 use std::collections::HashMap;
-use std::{ mpsc::Sender, Arc, RwLock };
-use std::{ RwLockReadGuard, RwLockWriteGuard };
+use std::sync::{ mpsc::Sender, Arc, RwLock };
+use std::sync::{ RwLockReadGuard, RwLockWriteGuard };
 
 pub struct Gameloop {
     game_state: Arc<GameState>,

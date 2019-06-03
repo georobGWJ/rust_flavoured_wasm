@@ -39,6 +39,8 @@ impl Combatant {
             // Creates a new Runtime to host the WASM module and
             // passes it a reference to the game state.
             let mut runtime = runtime::Runtime::init(game_state, n.clone());
+
+            let moduleref = Self::get_module_instance_from_module(&module).unwrap();
             // Invokes the bot_init() function in the WASM module, starting
             // the robot's infinite loop.
             let res = moduleref.invoke_export(BOTINIT_NAME, &[][..], &mut runtime);
@@ -50,6 +52,7 @@ impl Combatant {
     fn get_module_instance_from_module(module: &Module) ->  Result<ModuleRef> {
         let mut imports = ImportsBuilder::new();
         imports.push_resolver("env", &runtime::RuntimeModuleImportResolver);
+        
         Ok(ModuleInstance::new(module, &imports)
             .expect("Failed to instantiate module")
             .assert_no_start())
@@ -109,7 +112,6 @@ impl From<wasmi::Error> for Error {
 
 /// Indicates the kind of error that occurred
 #[derive(Debug)]
-#[derive(Debug)]
 enum Kind {
     InterpreterError(wasmi::Error),
     IoError(std::io::Error),
@@ -124,10 +126,3 @@ mod events;
 mod game;
 mod runtime;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}

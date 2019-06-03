@@ -26,7 +26,7 @@ fn main() {
     let rabbit = rb.unwrap();
 
     let my_gs = gs.clone();
-    let debug_gs = gs.clone;
+    let debug_gs = gs.clone();
 
     let (sender, receiver) = channel();
     thread::spawn(move || loop {
@@ -41,6 +41,7 @@ fn main() {
     let _handle1 = Combatant::start("bot-1",  bot1, gs.clone());
     let _handle2 = Combatant::start("rook",   bot2, gs.clone());
     let _handle3 = Combatant::start("rabbit", rabbit, gs.clone());
+    let game_result = gl.start();
 
     thread::sleep(time::Duration::from_secs(1));
 

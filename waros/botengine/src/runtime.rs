@@ -132,7 +132,7 @@ pub struct Runtime {
 
 impl Externals for Runtime {
 
-    fn invoke_index(&self, index: usize, args: RuntimeArgs)
+    fn invoke_index(&mut self, index: usize, args: RuntimeArgs)
         -> Result<Option<RuntimeValue>, Trap> {
             match index {
                 SCAN_INDEX => self.scan(args.nth(0), args.nth(1)),

@@ -1,5 +1,5 @@
 use super::*;
-use::crate::events::log_event;
+use crate::events::log_event;
 use crate::game::{ readlock, writelock };
 
 pub struct DamageSystem {
@@ -11,11 +11,11 @@ impl System for DamageSystem {
     fn apply(&self, cycle: u32, game_state: &Arc<GameState>) {
         game_state.players.read().unwrap().iter().for_each( |p| {
             // get a writelock on the Component Hash
-            writelock(&game_state.damage_components()
+            writelock(&game_state.damage_components)
                 // Get or create the damage_component
                 .entry(p.to_string())
                 // Modify the damage_component as needed
-                .and_modify( |dc| self.advance(p, game_state, dc, cycle) ))
+                .and_modify( |dc| self.advance(p, game_state, dc, cycle));
         });
     }
 }
@@ -71,7 +71,17 @@ impl DamageSystem {
                         cycle, 
                         DAMAGE_COLLISION,
                         DamageKind::Collision(CollisionType::Player(p.to_string())),
+                        player
                     );
+                },
+                Some(CollisionType::Wall(ref p)) => {
+                    dc.add_damage(DAMAGE_COLLISION);
+                    self.log_damage(
+                        cycle,
+                        DAMAGE_COLLISION,
+                        DamageKind::Collision(CollisionType::Wall(p.clone())),
+                        player
+                    )
                 },
                 None => {}
             },
@@ -133,7 +143,7 @@ pub enum DamageKind {
 #[derive(Debug)]
 pub struct DamageComponent {
     pub damage: u32,
-    pub tatus: DamgeStatus,
+    pub status: DamageStatus,
 }
 
 impl DamageComponent {
