@@ -1,0 +1,400 @@
+Resolving drive
+Resolving damage
+Resolving speed
+Resolving scan
+Resolving cannon
+Resolving drive
+Resolving speed
+Resolving loc_x
+Resolving loc_y
+Resolving plot_course
+Resolving drive
+Resolving speed
+Resolving loc_x
+Resolving loc_y
+Resolving rand
+Resolving plot_course
+Damage { cycle: 4772, amount: 2, kind: Collision(Wall(Point { coords: Matrix { data: [374.22778, 1004.21857] } })), victim: "bot-1" }
+Launch { cycle: 5414, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 115 }
+Explode { cycle: 5416, position: Point { coords: Matrix { data: [594.27966, 516.5988] } } }
+Launch { cycle: 5486, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 132 }
+Explode { cycle: 5488, position: Point { coords: Matrix { data: [479.27966, 384.59882] } } }
+Launch { cycle: 6695, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 140 }
+Explode { cycle: 6697, position: Point { coords: Matrix { data: [619.27966, 516.5988] } } }
+Launch { cycle: 7136, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 160 }
+Explode { cycle: 7139, position: Point { coords: Matrix { data: [319.27966, 516.5988] } } }
+Launch { cycle: 7713, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 73 }
+Explode { cycle: 7714, position: Point { coords: Matrix { data: [479.27966, 443.59882] } } }
+Launch { cycle: 8303, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 143 }
+Explode { cycle: 8305, position: Point { coords: Matrix { data: [479.27966, 373.59882] } } }
+Launch { cycle: 8557, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 49 }
+Explode { cycle: 8557, position: Point { coords: Matrix { data: [528.27966, 516.5988] } } }
+Launch { cycle: 9894, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 169 }
+Explode { cycle: 9897, position: Point { coords: Matrix { data: [479.27966, 347.59882] } } }
+Launch { cycle: 10064, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 87 }
+Explode { cycle: 10065, position: Point { coords: Matrix { data: [566.27966, 516.5988] } } }
+Launch { cycle: 10978, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 47 }
+Explode { cycle: 10978, position: Point { coords: Matrix { data: [479.27966, 469.59882] } } }
+Launch { cycle: 13047, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 119 }
+Explode { cycle: 13049, position: Point { coords: Matrix { data: [479.27966, 397.59882] } } }
+Launch { cycle: 14240, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 150 }
+Explode { cycle: 14242, position: Point { coords: Matrix { data: [329.27966, 516.5988] } } }
+Launch { cycle: 14754, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 171 }
+Explode { cycle: 14757, position: Point { coords: Matrix { data: [479.27966, 345.59882] } } }
+Launch { cycle: 15125, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 144 }
+Explode { cycle: 15127, position: Point { coords: Matrix { data: [623.27966, 516.5988] } } }
+Launch { cycle: 15413, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 161 }
+Explode { cycle: 15416, position: Point { coords: Matrix { data: [479.27966, 677.5988] } } }
+Launch { cycle: 15734, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 184 }
+Explode { cycle: 15737, position: Point { coords: Matrix { data: [479.27966, 700.5988] } } }
+Launch { cycle: 16041, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 53 }
+Explode { cycle: 16042, position: Point { coords: Matrix { data: [426.27966, 516.5988] } } }
+Launch { cycle: 16278, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 87 }
+Explode { cycle: 16279, position: Point { coords: Matrix { data: [566.27966, 516.5988] } } }
+Launch { cycle: 16479, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 193 }
+Explode { cycle: 16482, position: Point { coords: Matrix { data: [286.27966, 516.5988] } } }
+Launch { cycle: 17292, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 47 }
+Explode { cycle: 17292, position: Point { coords: Matrix { data: [526.27966, 516.5988] } } }
+Launch { cycle: 17896, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 157 }
+Explode { cycle: 17899, position: Point { coords: Matrix { data: [479.27966, 359.59882] } } }
+Launch { cycle: 18949, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 125 }
+Explode { cycle: 18951, position: Point { coords: Matrix { data: [604.27966, 516.5988] } } }
+Launch { cycle: 19627, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 121 }
+Explode { cycle: 19629, position: Point { coords: Matrix { data: [358.27966, 516.5988] } } }
+Launch { cycle: 19696, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 54 }
+Explode { cycle: 19697, position: Point { coords: Matrix { data: [533.27966, 516.5988] } } }
+Launch { cycle: 20308, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 115 }
+Explode { cycle: 20310, position: Point { coords: Matrix { data: [364.27966, 516.5988] } } }
+Launch { cycle: 20479, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 55 }
+Explode { cycle: 20480, position: Point { coords: Matrix { data: [479.27966, 571.5988] } } }
+Launch { cycle: 20976, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 76 }
+Explode { cycle: 20977, position: Point { coords: Matrix { data: [479.27966, 592.5988] } } }
+Launch { cycle: 21272, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 174 }
+Explode { cycle: 21275, position: Point { coords: Matrix { data: [653.27966, 516.5988] } } }
+Launch { cycle: 21299, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 74 }
+Explode { cycle: 21300, position: Point { coords: Matrix { data: [479.27966, 590.5988] } } }
+Launch { cycle: 21581, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 172 }
+Explode { cycle: 21584, position: Point { coords: Matrix { data: [479.27966, 688.5988] } } }
+Launch { cycle: 22068, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 147 }
+Explode { cycle: 22070, position: Point { coords: Matrix { data: [479.27966, 369.59882] } } }
+Launch { cycle: 23240, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 70 }
+Explode { cycle: 23241, position: Point { coords: Matrix { data: [479.27966, 446.59882] } } }
+Launch { cycle: 23314, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 155 }
+Explode { cycle: 23317, position: Point { coords: Matrix { data: [479.27966, 671.5988] } } }
+Launch { cycle: 23446, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 108 }
+Explode { cycle: 23448, position: Point { coords: Matrix { data: [479.27966, 408.59882] } } }
+Launch { cycle: 23850, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 140 }
+Explode { cycle: 23852, position: Point { coords: Matrix { data: [619.27966, 516.5988] } } }
+Launch { cycle: 24134, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 142 }
+Explode { cycle: 24136, position: Point { coords: Matrix { data: [479.27966, 374.59882] } } }
+Launch { cycle: 24255, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 161 }
+Explode { cycle: 24258, position: Point { coords: Matrix { data: [479.27966, 677.5988] } } }
+Launch { cycle: 24553, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 137 }
+Explode { cycle: 24555, position: Point { coords: Matrix { data: [479.27966, 653.5988] } } }
+Launch { cycle: 25656, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 122 }
+Explode { cycle: 25658, position: Point { coords: Matrix { data: [479.27966, 638.5988] } } }
+Launch { cycle: 26404, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 179 }
+Explode { cycle: 26407, position: Point { coords: Matrix { data: [479.27966, 695.5988] } } }
+Launch { cycle: 26487, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 76 }
+Explode { cycle: 26488, position: Point { coords: Matrix { data: [479.27966, 440.59882] } } }
+Launch { cycle: 26630, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 195 }
+Explode { cycle: 26633, position: Point { coords: Matrix { data: [479.27966, 711.5988] } } }
+Launch { cycle: 27670, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 105 }
+Explode { cycle: 27672, position: Point { coords: Matrix { data: [479.27966, 411.59882] } } }
+Launch { cycle: 28533, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 184 }
+Explode { cycle: 28536, position: Point { coords: Matrix { data: [663.27966, 516.5988] } } }
+Launch { cycle: 28758, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 157 }
+Explode { cycle: 28761, position: Point { coords: Matrix { data: [322.27966, 516.5988] } } }
+Launch { cycle: 29119, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 86 }
+Explode { cycle: 29120, position: Point { coords: Matrix { data: [393.27966, 516.5988] } } }
+Launch { cycle: 29853, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 87 }
+Explode { cycle: 29854, position: Point { coords: Matrix { data: [566.27966, 516.5988] } } }
+Launch { cycle: 30527, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 90 }
+Explode { cycle: 30528, position: Point { coords: Matrix { data: [479.27966, 426.59882] } } }
+Launch { cycle: 30597, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 143 }
+Explode { cycle: 30599, position: Point { coords: Matrix { data: [479.27966, 373.59882] } } }
+Launch { cycle: 31463, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 116 }
+Explode { cycle: 31465, position: Point { coords: Matrix { data: [595.27966, 516.5988] } } }
+Launch { cycle: 31943, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 166 }
+Explode { cycle: 31946, position: Point { coords: Matrix { data: [645.27966, 516.5988] } } }
+Launch { cycle: 32250, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 87 }
+Explode { cycle: 32251, position: Point { coords: Matrix { data: [566.27966, 516.5988] } } }
+Launch { cycle: 32888, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 103 }
+Explode { cycle: 32890, position: Point { coords: Matrix { data: [582.27966, 516.5988] } } }
+Launch { cycle: 33118, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 111 }
+Explode { cycle: 33120, position: Point { coords: Matrix { data: [479.27966, 405.59882] } } }
+Launch { cycle: 33295, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 174 }
+Explode { cycle: 33298, position: Point { coords: Matrix { data: [479.27966, 342.59882] } } }
+Launch { cycle: 33924, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 73 }
+Explode { cycle: 33925, position: Point { coords: Matrix { data: [479.27966, 589.5988] } } }
+Launch { cycle: 34105, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 79 }
+Explode { cycle: 34106, position: Point { coords: Matrix { data: [479.27966, 595.5988] } } }
+Launch { cycle: 34200, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 124 }
+Explode { cycle: 34202, position: Point { coords: Matrix { data: [479.27966, 640.5988] } } }
+Launch { cycle: 34919, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 74 }
+Explode { cycle: 34920, position: Point { coords: Matrix { data: [553.27966, 516.5988] } } }
+Launch { cycle: 35780, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 182 }
+Explode { cycle: 35783, position: Point { coords: Matrix { data: [479.27966, 334.59882] } } }
+Launch { cycle: 35876, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 143 }
+Explode { cycle: 35878, position: Point { coords: Matrix { data: [479.27966, 659.5988] } } }
+Launch { cycle: 36032, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 41 }
+Explode { cycle: 36032, position: Point { coords: Matrix { data: [520.27966, 516.5988] } } }
+Launch { cycle: 36081, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 102 }
+Explode { cycle: 36083, position: Point { coords: Matrix { data: [581.27966, 516.5988] } } }
+Launch { cycle: 37105, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 77 }
+Explode { cycle: 37106, position: Point { coords: Matrix { data: [479.27966, 593.5988] } } }
+Launch { cycle: 37600, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 109 }
+Explode { cycle: 37602, position: Point { coords: Matrix { data: [588.27966, 516.5988] } } }
+Launch { cycle: 37804, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 61 }
+Explode { cycle: 37805, position: Point { coords: Matrix { data: [540.27966, 516.5988] } } }
+Launch { cycle: 38180, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 154 }
+Explode { cycle: 38183, position: Point { coords: Matrix { data: [633.27966, 516.5988] } } }
+Launch { cycle: 38568, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 121 }
+Explode { cycle: 38570, position: Point { coords: Matrix { data: [479.27966, 637.5988] } } }
+Launch { cycle: 38973, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 159 }
+Explode { cycle: 38976, position: Point { coords: Matrix { data: [479.27966, 357.59882] } } }
+Launch { cycle: 39118, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 58 }
+Explode { cycle: 39119, position: Point { coords: Matrix { data: [479.27966, 458.59882] } } }
+Launch { cycle: 39533, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 127 }
+Explode { cycle: 39535, position: Point { coords: Matrix { data: [606.27966, 516.5988] } } }
+Launch { cycle: 40066, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 186 }
+Explode { cycle: 40069, position: Point { coords: Matrix { data: [479.27966, 702.5988] } } }
+Launch { cycle: 40866, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 170 }
+Explode { cycle: 40869, position: Point { coords: Matrix { data: [479.27966, 686.5988] } } }
+Launch { cycle: 40927, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 107 }
+Explode { cycle: 40929, position: Point { coords: Matrix { data: [479.27966, 409.59882] } } }
+Launch { cycle: 41579, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 170 }
+Explode { cycle: 41582, position: Point { coords: Matrix { data: [649.27966, 516.5988] } } }
+Launch { cycle: 41818, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 83 }
+Explode { cycle: 41819, position: Point { coords: Matrix { data: [479.27966, 433.59882] } } }
+Launch { cycle: 42051, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 145 }
+Explode { cycle: 42053, position: Point { coords: Matrix { data: [624.27966, 516.5988] } } }
+Launch { cycle: 42248, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 196 }
+Explode { cycle: 42251, position: Point { coords: Matrix { data: [675.27966, 516.5988] } } }
+Launch { cycle: 42835, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 163 }
+Explode { cycle: 42838, position: Point { coords: Matrix { data: [479.27966, 353.59882] } } }
+Launch { cycle: 43241, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 154 }
+Explode { cycle: 43244, position: Point { coords: Matrix { data: [633.27966, 516.5988] } } }
+Launch { cycle: 43701, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 134 }
+Explode { cycle: 43703, position: Point { coords: Matrix { data: [613.27966, 516.5988] } } }
+Launch { cycle: 45934, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 62 }
+Explode { cycle: 45935, position: Point { coords: Matrix { data: [479.27966, 454.59882] } } }
+Launch { cycle: 46470, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 170 }
+Explode { cycle: 46473, position: Point { coords: Matrix { data: [479.27966, 346.59882] } } }
+Launch { cycle: 47351, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 101 }
+Explode { cycle: 47353, position: Point { coords: Matrix { data: [479.27966, 415.59882] } } }
+Launch { cycle: 48156, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 168 }
+Explode { cycle: 48159, position: Point { coords: Matrix { data: [479.27966, 684.5988] } } }
+Launch { cycle: 48682, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 115 }
+Explode { cycle: 48684, position: Point { coords: Matrix { data: [479.27966, 631.5988] } } }
+Launch { cycle: 49086, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 153 }
+Explode { cycle: 49089, position: Point { coords: Matrix { data: [479.27966, 669.5988] } } }
+Launch { cycle: 49958, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 147 }
+Explode { cycle: 49960, position: Point { coords: Matrix { data: [479.27966, 369.59882] } } }
+Launch { cycle: 50070, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 107 }
+Explode { cycle: 50072, position: Point { coords: Matrix { data: [479.27966, 409.59882] } } }
+Launch { cycle: 51028, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 87 }
+Explode { cycle: 51029, position: Point { coords: Matrix { data: [479.27966, 603.5988] } } }
+Launch { cycle: 51753, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 42 }
+Explode { cycle: 51753, position: Point { coords: Matrix { data: [521.27966, 516.5988] } } }
+Launch { cycle: 52076, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 43 }
+Explode { cycle: 52076, position: Point { coords: Matrix { data: [522.27966, 516.5988] } } }
+Launch { cycle: 53328, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 184 }
+Explode { cycle: 53331, position: Point { coords: Matrix { data: [295.27966, 516.5988] } } }
+Launch { cycle: 53491, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 181 }
+Explode { cycle: 53494, position: Point { coords: Matrix { data: [660.27966, 516.5988] } } }
+Launch { cycle: 53946, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 162 }
+Explode { cycle: 53949, position: Point { coords: Matrix { data: [479.27966, 678.5988] } } }
+Launch { cycle: 54106, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 118 }
+Explode { cycle: 54108, position: Point { coords: Matrix { data: [479.27966, 398.59882] } } }
+Launch { cycle: 55061, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 158 }
+Explode { cycle: 55064, position: Point { coords: Matrix { data: [637.27966, 516.5988] } } }
+Launch { cycle: 55398, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 58 }
+Explode { cycle: 55399, position: Point { coords: Matrix { data: [479.27966, 574.5988] } } }
+Launch { cycle: 55422, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 194 }
+Explode { cycle: 55425, position: Point { coords: Matrix { data: [673.27966, 516.5988] } } }
+Launch { cycle: 56045, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 54 }
+Explode { cycle: 56046, position: Point { coords: Matrix { data: [533.27966, 516.5988] } } }
+Launch { cycle: 56719, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 186 }
+Explode { cycle: 56722, position: Point { coords: Matrix { data: [293.27966, 516.5988] } } }
+Launch { cycle: 57051, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 62 }
+Explode { cycle: 57052, position: Point { coords: Matrix { data: [541.27966, 516.5988] } } }
+Launch { cycle: 58101, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 163 }
+Explode { cycle: 58104, position: Point { coords: Matrix { data: [479.27966, 353.59882] } } }
+Launch { cycle: 58318, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 192 }
+Explode { cycle: 58321, position: Point { coords: Matrix { data: [479.27966, 324.59882] } } }
+Launch { cycle: 58349, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 180 }
+Explode { cycle: 58352, position: Point { coords: Matrix { data: [479.27966, 336.59882] } } }
+Launch { cycle: 58416, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 191 }
+Explode { cycle: 58419, position: Point { coords: Matrix { data: [288.27966, 516.5988] } } }
+Launch { cycle: 59408, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 117 }
+Explode { cycle: 59410, position: Point { coords: Matrix { data: [362.27966, 516.5988] } } }
+Launch { cycle: 59657, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 189 }
+Explode { cycle: 59660, position: Point { coords: Matrix { data: [479.27966, 705.5988] } } }
+Launch { cycle: 59809, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 187 }
+Explode { cycle: 59812, position: Point { coords: Matrix { data: [292.27966, 516.5988] } } }
+Launch { cycle: 60204, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 59 }
+Explode { cycle: 60205, position: Point { coords: Matrix { data: [479.27966, 575.5988] } } }
+Launch { cycle: 61121, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 83 }
+Explode { cycle: 61122, position: Point { coords: Matrix { data: [479.27966, 599.5988] } } }
+Launch { cycle: 61410, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 110 }
+Explode { cycle: 61412, position: Point { coords: Matrix { data: [589.27966, 516.5988] } } }
+Launch { cycle: 61465, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 115 }
+Explode { cycle: 61467, position: Point { coords: Matrix { data: [479.27966, 631.5988] } } }
+Launch { cycle: 61701, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 113 }
+Explode { cycle: 61703, position: Point { coords: Matrix { data: [479.27966, 629.5988] } } }
+Launch { cycle: 61877, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 170 }
+Explode { cycle: 61880, position: Point { coords: Matrix { data: [649.27966, 516.5988] } } }
+Launch { cycle: 62007, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 166 }
+Explode { cycle: 62010, position: Point { coords: Matrix { data: [479.27966, 682.5988] } } }
+Launch { cycle: 62087, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 169 }
+Explode { cycle: 62090, position: Point { coords: Matrix { data: [648.27966, 516.5988] } } }
+Launch { cycle: 62456, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 176 }
+Explode { cycle: 62459, position: Point { coords: Matrix { data: [479.27966, 692.5988] } } }
+Launch { cycle: 62538, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 119 }
+Explode { cycle: 62540, position: Point { coords: Matrix { data: [479.27966, 635.5988] } } }
+Launch { cycle: 62689, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 179 }
+Explode { cycle: 62692, position: Point { coords: Matrix { data: [479.27966, 337.59882] } } }
+Launch { cycle: 63205, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 51 }
+Explode { cycle: 63206, position: Point { coords: Matrix { data: [479.27966, 567.5988] } } }
+Launch { cycle: 63413, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 192 }
+Explode { cycle: 63416, position: Point { coords: Matrix { data: [479.27966, 324.59882] } } }
+Launch { cycle: 64795, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 43 }
+Explode { cycle: 64795, position: Point { coords: Matrix { data: [479.27966, 473.59882] } } }
+Launch { cycle: 64830, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 181 }
+Explode { cycle: 64833, position: Point { coords: Matrix { data: [479.27966, 335.59882] } } }
+Launch { cycle: 66001, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 114 }
+Explode { cycle: 66003, position: Point { coords: Matrix { data: [479.27966, 402.59882] } } }
+Launch { cycle: 66368, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 41 }
+Explode { cycle: 66368, position: Point { coords: Matrix { data: [479.27966, 557.5988] } } }
+Launch { cycle: 66401, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 83 }
+Explode { cycle: 66402, position: Point { coords: Matrix { data: [479.27966, 433.59882] } } }
+Launch { cycle: 66660, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 46 }
+Explode { cycle: 66660, position: Point { coords: Matrix { data: [525.27966, 516.5988] } } }
+Launch { cycle: 67826, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 185 }
+Explode { cycle: 67829, position: Point { coords: Matrix { data: [664.27966, 516.5988] } } }
+Launch { cycle: 68267, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 77 }
+Explode { cycle: 68268, position: Point { coords: Matrix { data: [556.27966, 516.5988] } } }
+Launch { cycle: 69455, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 140 }
+Explode { cycle: 69457, position: Point { coords: Matrix { data: [479.27966, 376.59882] } } }
+Launch { cycle: 70369, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 192 }
+Explode { cycle: 70372, position: Point { coords: Matrix { data: [479.27966, 708.5988] } } }
+Launch { cycle: 70543, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 143 }
+Explode { cycle: 70545, position: Point { coords: Matrix { data: [622.27966, 516.5988] } } }
+Launch { cycle: 70702, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 158 }
+Explode { cycle: 70705, position: Point { coords: Matrix { data: [321.27966, 516.5988] } } }
+Launch { cycle: 71116, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 174 }
+Explode { cycle: 71119, position: Point { coords: Matrix { data: [479.27966, 690.5988] } } }
+Launch { cycle: 71737, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 183 }
+Explode { cycle: 71740, position: Point { coords: Matrix { data: [479.27966, 699.5988] } } }
+Launch { cycle: 72013, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 125 }
+Explode { cycle: 72015, position: Point { coords: Matrix { data: [354.27966, 516.5988] } } }
+Launch { cycle: 72298, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 193 }
+Explode { cycle: 72301, position: Point { coords: Matrix { data: [479.27966, 709.5988] } } }
+Launch { cycle: 74576, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 156 }
+Explode { cycle: 74579, position: Point { coords: Matrix { data: [479.27966, 360.59882] } } }
+Launch { cycle: 74787, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 194 }
+Explode { cycle: 74790, position: Point { coords: Matrix { data: [479.27966, 710.5988] } } }
+Launch { cycle: 75998, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 139 }
+Explode { cycle: 76000, position: Point { coords: Matrix { data: [479.27966, 655.5988] } } }
+Launch { cycle: 76110, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 182 }
+Explode { cycle: 76113, position: Point { coords: Matrix { data: [479.27966, 334.59882] } } }
+Launch { cycle: 76320, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 149 }
+Explode { cycle: 76322, position: Point { coords: Matrix { data: [330.27966, 516.5988] } } }
+Launch { cycle: 76833, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 140 }
+Explode { cycle: 76835, position: Point { coords: Matrix { data: [479.27966, 656.5988] } } }
+Launch { cycle: 77106, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 144 }
+Explode { cycle: 77108, position: Point { coords: Matrix { data: [479.27966, 372.59882] } } }
+Launch { cycle: 77507, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 68 }
+Explode { cycle: 77508, position: Point { coords: Matrix { data: [479.27966, 448.59882] } } }
+Launch { cycle: 79553, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 87 }
+Explode { cycle: 79554, position: Point { coords: Matrix { data: [479.27966, 429.59882] } } }
+Launch { cycle: 79657, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 166 }
+Explode { cycle: 79660, position: Point { coords: Matrix { data: [313.27966, 516.5988] } } }
+Launch { cycle: 80482, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 41 }
+Explode { cycle: 80482, position: Point { coords: Matrix { data: [520.27966, 516.5988] } } }
+Damage { cycle: 80489, amount: 2, kind: Collision(Wall(Point { coords: Matrix { data: [1006.68225, 627.8425] } })), victim: "rabbit" }
+Launch { cycle: 80760, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 132 }
+Explode { cycle: 80762, position: Point { coords: Matrix { data: [611.27966, 516.5988] } } }
+Launch { cycle: 80832, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 151 }
+Explode { cycle: 80835, position: Point { coords: Matrix { data: [630.27966, 516.5988] } } }
+Launch { cycle: 80879, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 119 }
+Explode { cycle: 80881, position: Point { coords: Matrix { data: [479.27966, 397.59882] } } }
+Launch { cycle: 81144, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 149 }
+Explode { cycle: 81146, position: Point { coords: Matrix { data: [628.27966, 516.5988] } } }
+Launch { cycle: 81373, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 159 }
+Explode { cycle: 81376, position: Point { coords: Matrix { data: [479.27966, 675.5988] } } }
+Launch { cycle: 82159, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 96 }
+Explode { cycle: 82160, position: Point { coords: Matrix { data: [479.27966, 612.5988] } } }
+Launch { cycle: 82968, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 112 }
+Explode { cycle: 82970, position: Point { coords: Matrix { data: [591.27966, 516.5988] } } }
+Launch { cycle: 84190, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 187 }
+Explode { cycle: 84193, position: Point { coords: Matrix { data: [292.27966, 516.5988] } } }
+Launch { cycle: 85400, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 168 }
+Explode { cycle: 85403, position: Point { coords: Matrix { data: [479.27966, 684.5988] } } }
+Launch { cycle: 85867, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 41 }
+Explode { cycle: 85867, position: Point { coords: Matrix { data: [479.27966, 475.59882] } } }
+Launch { cycle: 86070, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 189 }
+Explode { cycle: 86073, position: Point { coords: Matrix { data: [479.27966, 327.59882] } } }
+Launch { cycle: 86267, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 63 }
+Explode { cycle: 86268, position: Point { coords: Matrix { data: [542.27966, 516.5988] } } }
+Launch { cycle: 86936, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 190 }
+Explode { cycle: 86939, position: Point { coords: Matrix { data: [479.27966, 706.5988] } } }
+Launch { cycle: 87064, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 157 }
+Explode { cycle: 87067, position: Point { coords: Matrix { data: [479.27966, 359.59882] } } }
+Launch { cycle: 87251, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 63 }
+Explode { cycle: 87252, position: Point { coords: Matrix { data: [479.27966, 579.5988] } } }
+Launch { cycle: 87301, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 74 }
+Explode { cycle: 87302, position: Point { coords: Matrix { data: [479.27966, 590.5988] } } }
+Launch { cycle: 87612, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 196 }
+Explode { cycle: 87615, position: Point { coords: Matrix { data: [675.27966, 516.5988] } } }
+Launch { cycle: 87686, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 196 }
+Explode { cycle: 87689, position: Point { coords: Matrix { data: [283.27966, 516.5988] } } }
+Launch { cycle: 87830, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 93 }
+Explode { cycle: 87831, position: Point { coords: Matrix { data: [479.27966, 423.59882] } } }
+Launch { cycle: 88047, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 192 }
+Explode { cycle: 88050, position: Point { coords: Matrix { data: [671.27966, 516.5988] } } }
+Launch { cycle: 88954, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 131 }
+Explode { cycle: 88956, position: Point { coords: Matrix { data: [348.27966, 516.5988] } } }
+Launch { cycle: 89106, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 62 }
+Explode { cycle: 89107, position: Point { coords: Matrix { data: [417.27966, 516.5988] } } }
+Launch { cycle: 90096, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 196 }
+Explode { cycle: 90099, position: Point { coords: Matrix { data: [675.27966, 516.5988] } } }
+Launch { cycle: 91360, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 99 }
+Explode { cycle: 91361, position: Point { coords: Matrix { data: [479.27966, 417.59882] } } }
+Launch { cycle: 91443, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 96 }
+Explode { cycle: 91444, position: Point { coords: Matrix { data: [575.27966, 516.5988] } } }
+Launch { cycle: 91859, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 162 }
+Explode { cycle: 91862, position: Point { coords: Matrix { data: [479.27966, 354.59882] } } }
+Launch { cycle: 92845, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 184 }
+Explode { cycle: 92848, position: Point { coords: Matrix { data: [663.27966, 516.5988] } } }
+Launch { cycle: 94057, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 173 }
+Explode { cycle: 94060, position: Point { coords: Matrix { data: [306.27966, 516.5988] } } }
+Launch { cycle: 94932, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 100 }
+Explode { cycle: 94933, position: Point { coords: Matrix { data: [479.27966, 416.59882] } } }
+Launch { cycle: 95055, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 44 }
+Explode { cycle: 95055, position: Point { coords: Matrix { data: [479.27966, 472.59882] } } }
+Launch { cycle: 95747, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 100 }
+Explode { cycle: 95748, position: Point { coords: Matrix { data: [579.27966, 516.5988] } } }
+Launch { cycle: 95791, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 73 }
+Explode { cycle: 95792, position: Point { coords: Matrix { data: [479.27966, 589.5988] } } }
+Launch { cycle: 96171, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 147 }
+Explode { cycle: 96173, position: Point { coords: Matrix { data: [479.27966, 369.59882] } } }
+Launch { cycle: 96851, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 154 }
+Explode { cycle: 96854, position: Point { coords: Matrix { data: [479.27966, 670.5988] } } }
+Launch { cycle: 97508, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 130 }
+Explode { cycle: 97510, position: Point { coords: Matrix { data: [609.27966, 516.5988] } } }
+Launch { cycle: 98085, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 189 }
+Explode { cycle: 98088, position: Point { coords: Matrix { data: [479.27966, 327.59882] } } }
+Launch { cycle: 99024, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 90, range: 135 }
+Explode { cycle: 99026, position: Point { coords: Matrix { data: [479.27966, 651.5988] } } }
+Launch { cycle: 99511, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: 0, range: 183 }
+Explode { cycle: 99514, position: Point { coords: Matrix { data: [662.27966, 516.5988] } } }
+Launch { cycle: 99668, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -90, range: 159 }
+Explode { cycle: 99671, position: Point { coords: Matrix { data: [479.27966, 357.59882] } } }
+Launch { cycle: 99770, player: "rook", from: Point { coords: Matrix { data: [479.27966, 516.5988] } }, heading: -180, range: 144 }
+Explode { cycle: 99772, position: Point { coords: Matrix { data: [335.27966, 516.5988] } } }
+
+
+Game loop terminated: CycleCountExceeded
+State: GameState { players: RwLock { data: ["bot-1", "rook", "rabbit"] }, motion_components: RwLock { data: {"rabbit": MotionComponent { position: Point { coords: Matrix { data: [771.25323, 719.8794] } }, origin: Point { coords: Matrix { data: [404.7731, 586.4916] } }, distance_along_heading: 390, speed: 20, desired_speed: 20, heading: 20, collision: None }, "bot-1": MotionComponent { position: Point { coords: Matrix { data: [374.22778, 999.0] } }, origin: Point { coords: Matrix { data: [374.2278, 619.21857] } }, distance_along_heading: 385, speed: 0, desired_speed: 0, heading: 90, collision: None }, "rook": MotionComponent { position: Point { coords: Matrix { data: [479.27966, 516.5988] } }, origin: Point { coords: Matrix { data: [503.23874, 498.54437] } }, distance_along_heading: 30, speed: 0, desired_speed: 0, heading: 143, collision: None }} }, damage_components: RwLock { data: {"bot-1": DamageComponent { damage: 2, status: Alive }, "rabbit": DamageComponent { damage: 2, status: Alive }, "rook": DamageComponent { damage: 0, status: Alive }} }, scanner_components: RwLock { data: {"rabbit": ScannerComponent { angle: 0 }, "bot-1": ScannerComponent { angle: 0 }, "rook": ScannerComponent { angle: 90 }} }, projectile_components: RwLock { data: {"rook": ProjectileComponent { projectiles: [Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }, Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }] }, "bot-1": ProjectileComponent { projectiles: [Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }, Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }] }, "rabbit": ProjectileComponent { projectiles: [Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }, Projectile { status: Available, start_pos: Point { coords: Matrix { data: [0.0, 0.0] } }, position: Point { coords: Matrix { data: [0.0, 0.0] } }, heading: 0, cycle_count: 0, current_distance: 0, range: 0, active_hits: {} }] }} } }
