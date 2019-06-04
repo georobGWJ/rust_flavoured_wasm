@@ -46,5 +46,5 @@ fn main() {
     thread::sleep(time::Duration::from_secs(1));
 
     println!(
-        "Game loop terminated: {:?}\nState: {:?}", game_result, debug_gs);
+        "\n\nGame loop terminated: {:?}\nState: {:?}", game_result, debug_gs);
 }
