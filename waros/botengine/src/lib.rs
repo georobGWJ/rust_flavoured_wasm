@@ -2,6 +2,10 @@
 // and behavior. The combatant is a wrapper atound the loading, parsing,
 // and interpreting of the WASM modules.
 
+extern crate wasmi;
+extern crate nalgebra;
+extern crate rand;
+
 use std::fmt;
 use std::sync::Arc;
 use std::thread;

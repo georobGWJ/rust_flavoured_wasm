@@ -92,10 +92,3 @@ pub const PROJECTILE_MAX_RANGE: i32 = 200;
 
 mod ffi;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}

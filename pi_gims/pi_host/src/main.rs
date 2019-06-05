@@ -14,10 +14,10 @@ use wasm::Runtime;
 use wasmi::RuntimeValue;
 
 const MODULE_FILE: &'static str =
-    "/Users/georob/Desktop/spike/wasm/rust_flavoured_wasm/pi_gims/indicator.wasm";
+    "/Users/georob/spike/wasm/rust_flavoured_wasm/pi_gims/indicator.wasm";
     // "C:\\Users\\r.turnerjr\\spike\\wasm\\rust_flavoured_wasm\\pi_gims\\indicator.wasm";
 const MODULE_DIR: &'static str =
-    "/Users/georob/Desktop/spike/wasm/rust_flavoured_wasm/pi_gims";
+    "/Users/georob/spike/wasm/rust_flavoured_wasm/pi_gims";
     //"C:\\Users\\r.turnerjr\\spike\\wasm\\rust_flavoured_wasm\\pi_gims";
 
 enum RunnerCommand {
