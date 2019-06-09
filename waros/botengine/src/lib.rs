@@ -38,6 +38,7 @@ impl Combatant {
         -> JoinHandle<()> {
         let n = name.to_string();
 
+        // Each Combatant (bot) runs in it's own thread (verify)
         thread::spawn(move || {
             let module = Module::from_buffer(&buffer).unwrap();
             // Creates a new Runtime to host the WASM module and

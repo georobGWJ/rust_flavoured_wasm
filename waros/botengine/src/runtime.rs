@@ -124,6 +124,8 @@ fn gen_funcref(name: &str) -> Option<FuncRef> {
     }
 }
 
+// A Runtime is what a Combatant uses to store it's state and a reference to the
+// Gamestate
 pub struct Runtime {
     pub game_state: Arc<super::game::GameState>,
     pub module_name: String,
