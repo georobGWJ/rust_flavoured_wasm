@@ -1,5 +1,5 @@
 use std::error::Error;
-use std::file::File;
+use std::fs::File;
 use std::path::Path;
 use std::io::prelude::*;
 
@@ -25,7 +25,7 @@ pub fn echo_file() {
 
     // Try to open file in Read-Only mode
     let mut file = match File::open(&path) {
-        Ok(_)  => file,
+        Ok(file)  => file,
         Err(e) => panic!("Couldn't open {}: {}", path_desc, e.description()),
     };
 
