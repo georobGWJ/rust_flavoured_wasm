@@ -1,0 +1,10 @@
+[package]
+name = "file-reader"
+version = "0.1.0"
+authors = ["Robert Turner Jr <georob23@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "^0.2"
