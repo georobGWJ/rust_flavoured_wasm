@@ -39,7 +39,6 @@ pub fn echo_file() {
         Ok(_)  => {
             let contents: &str = &raw_str[..]; // Take a fullslice of the String
             alert(contents);
-            // alert(format!("{} contains:\n{}", path_desc, contents));
         },
         Err(e) => panic!("Couldn't read {}: {}", path_desc, e.description()),
     }
