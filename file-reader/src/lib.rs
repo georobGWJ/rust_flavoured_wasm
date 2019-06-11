@@ -10,8 +10,12 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 extern "C" {
     fn alert(s: &str);
+
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
 }
 
+// Exported functions
 #[wasm_bindgen]
 pub fn echo_static_string() {
     alert("The sky was the color of a television, tuned to a dead channel...");
@@ -30,9 +34,12 @@ pub fn echo_file() {
     };
 
     // Now read and present the contents of the file
-    let mut s = String::new();
-    match file.read_to_string(&mut s) {
-        Ok(_)  => print!("{} contains:\n{}", path_desc, s),
+    let mut raw_str = String::new();
+    match file.read_to_string(&mut raw_str) {
+        Ok(_)  => {
+            let contents: &str = &raw_str[..]; // Take a fullslice of the String
+            alert(contents);
+        },
         Err(e) => panic!("Couldn't read {}: {}", path_desc, e.description()),
     }
 }
